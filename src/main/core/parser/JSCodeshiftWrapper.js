@@ -1,9 +1,12 @@
 const jscodeshift = require('../../../../node_modules/jscodeshift');
 
+
+
 class JSCodeshiftWrapper {
 
     static parse(code) {
-        return jscodeshift(code, { loc: true });
+        const filter_by = { loc: false };
+        return jscodeshift(code, filter_by);
     }
 }
 
