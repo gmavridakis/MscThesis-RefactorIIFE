@@ -1,3 +1,12 @@
+(function IIFE1(){
+}());
+
+var y = (function IIFE2(){
+}());
+
+let x;
+x = x+1;
+
 var globalVar = "functionsExample";
 
 function outer() {
@@ -16,6 +25,7 @@ var obj = {
 
     prop: "object's property"
 };
+
 
 
 console.log(globalVar);
