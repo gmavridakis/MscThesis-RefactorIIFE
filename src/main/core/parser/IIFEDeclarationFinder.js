@@ -6,6 +6,7 @@ const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
 
 let IIFEDeclarationNodes = [];
 
+
 class IIFEDeclarationFinder {
 
     constructor() {
