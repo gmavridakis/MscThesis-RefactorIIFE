@@ -1,2 +1,0 @@
-cd C:\Users\gregm\OneDrive\Έγγραφα\GIGTHUB_PROJECTS\refactor-iifes
-npm test

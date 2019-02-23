@@ -1,1 +1,0 @@
-jscodeshift -t parser1.js test1.js -d -p >> results1.txt
