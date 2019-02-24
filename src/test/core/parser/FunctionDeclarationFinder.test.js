@@ -8,7 +8,7 @@ const fileUtils = require('../../../main/io/fileutil');
 const FUNCTION_DECLARATIONS = 2;
 const VARIABLE_DECLARATIONS = 4;
 const EXPRESSION_DECLARATIONS = 2;
-const IIFE_DECLARATIONS = 2;
+const IIFE_DECLARATIONS = 3;
 
 let functionDeclarations;
 let variableDeclarations;

@@ -1,11 +1,17 @@
 (function IIFE1(){
+    console.log('First IIFE expression!');
 }());
 
 var y = (function IIFE2(){
+    //do some stuff
 }());
 
 let x;
 x = x+1;
+
+(function IIFE3(){
+    //No question mark here!
+}())
 
 var globalVar = "functionsExample";
 

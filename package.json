@@ -17,10 +17,12 @@
     "esquery": "^1.0.1",
     "estraverse": "^4.2.0",
     "jest": "^23.6.0",
+    "jquery": "^3.3.1",
     "jscodeshift": "^0.6.2",
     "process": "^0.11.10",
     "recast": "^0.16.1",
     "requirejs": "^2.3.6",
+    "script-file": "^0.10.0",
     "tern": "^0.22.3",
     "walk": "^2.3.14"
   },

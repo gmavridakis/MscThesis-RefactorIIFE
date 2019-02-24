@@ -23,9 +23,27 @@ class IIFEDeclarationFinder {
         //find all IIFEDeclaration AST nodes and push each of them to array
         this.IIFESimplestForm(rootNode);      
         this.IIFEVariableDeclaration(rootNode); 
+        console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
         console.log(IIFEDeclarationNodes);   
+        console.log('--------------------------------------------------------------------------');
         return IIFEDeclarationNodes;
     }
+
+    static isDuplicateEntry(name,start,end){
+        var $ = require("jquery");
+        let res = false;
+        $.each( IIFEDeclarationNodes, function( index, value ){
+            let _name = value.IIFEName;
+            let _start = value.IIFEASTNode.start; 
+            let _end = value.IIFEASTNode.end + 2; 
+            //console.log('Checking : ' +_name +_start +_end +' with : ' +name +start +end);
+            if(_name == name && _start == start && _end == end){
+                 res = true;
+            }
+        });
+        return res;
+    }
+
 
     static IIFEVariableDeclaration(rootNode) {
         rootNode.find(IIFE_VARIABLE_QUERY.target)
@@ -34,12 +52,15 @@ class IIFEDeclarationFinder {
                     if(IIFEVariableNode.value.declarations[0].init.callee!=undefined){
                         let callee = IIFEVariableNode.value.declarations[0].init.callee.type;
                         if(callee == 'FunctionExpression'){
-                            // console.log('---------IIFE VARIABLE FORM DECLARATION----------');
-                            // console.log(IIFEVariableNode.value.declarations[0].init.callee.id.name);
-                            // console.log('-----------------------------------------------------');
                             let _name = IIFEVariableNode.value.declarations[0].init.callee.id.name;
                             let _node = IIFEVariableNode.value.declarations[0].init.callee;
-                            IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                            let _start = IIFEVariableNode.value.declarations[0].init.start;
+                            let _end = IIFEVariableNode.value.declarations[0].init.end;
+                            //console.log('Sending : ' +_name + _start +_end);
+                            //console.log('Result is : ' +this.isDuplicateEntry(_name,_start,_end));                            
+                            if(!this.isDuplicateEntry(_name,_start,_end)){
+                                IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                            }
                         }
                     }   
                 }
@@ -52,12 +73,15 @@ class IIFEDeclarationFinder {
                 if ( IIFEDeclarationNode.value.expression.type == 'CallExpression'){
                     if(IIFEDeclarationNode.value.expression.callee.type == 'FunctionExpression'){
                         if(IIFEDeclarationNode.value.expression.callee.id.name != 'undefined') {
-                            // console.log('---------IIFE SIMPLEST FORM DECLARATION----------');
-                            // console.log(IIFEDeclarationNode.value.expression.callee.id.name);
-                            // console.log('-----------------------------------------------------');
                             let _name = IIFEDeclarationNode.value.expression.callee.id.name;
                             let _node = IIFEDeclarationNode.value.expression.callee;
-                            IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                            let _start = IIFEDeclarationNode.value.expression.start;
+                            let _end = IIFEDeclarationNode.value.expression.end;
+                            //console.log('Sending : ' +_name + _start +_end);
+                            //console.log('Result is : ' +this.isDuplicateEntry(_name,_start,_end));
+                            if(!this.isDuplicateEntry(_name,_start,_end)){
+                                IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                            }
                         }
                     }
                 }        
