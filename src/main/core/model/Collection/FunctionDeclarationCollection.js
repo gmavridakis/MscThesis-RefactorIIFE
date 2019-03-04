@@ -1,6 +1,9 @@
 const FunctionDeclaration = require('../FunctionDeclaration');
 
 class FunctionDeclarationCollection{
+    constructor() {
+        
+    }
 
     static getDeclarationCollection(){
         FunctionDeclaration.call(this);

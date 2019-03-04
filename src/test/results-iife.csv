@@ -1,0 +1,38 @@
+[
+
+"Index : 0",
+
+"Name : Unnamed",
+
+"Node : function() { /* do some stuff here unnamed without var*/ }",
+
+"Index : 1",
+
+"Name : IIFE1",
+
+"Node : function IIFE1(){    //IIFE1    console.log('First IIFE expression!');}",
+
+"Index : 2",
+
+"Name : IIFE3",
+
+"Node : function IIFE3(){    //No question mark here IIFE3!}",
+
+"Index : 3",
+
+"Name : Unnamed",
+
+"Node : function() { /* do some stuff here varl */ return 'test';}",
+
+"Index : 4",
+
+"Name : IIFE2",
+
+"Node : function IIFE2(){    //do some stuff var y IIFE 2/**/}",
+
+"Index : 5",
+
+"Name : IIFE4",
+
+"Node : function IIFE4(){            //do some stuff internal var z        }"
+]

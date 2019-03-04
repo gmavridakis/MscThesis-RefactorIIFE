@@ -5,7 +5,7 @@ const IIFE_DECLARATION_QUERY = {target: j.ExpressionStatement};
 const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
 
 let IIFEDeclarationNodes = [];
-
+let initCode;
 
 class IIFEDeclarationFinder {
 
@@ -23,10 +23,18 @@ class IIFEDeclarationFinder {
         //find all IIFEDeclaration AST nodes and push each of them to array
         this.IIFESimplestForm(rootNode);      
         this.IIFEVariableDeclaration(rootNode); 
-        console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
-        console.log(IIFEDeclarationNodes);   
-        console.log('--------------------------------------------------------------------------');
         return IIFEDeclarationNodes;
+    }
+
+    static getIIFEDetails(){
+        let $ = require("jquery");
+        let arr = [];
+        $.each( IIFEDeclarationNodes, function( index, value ){
+            arr.push('Index : ' +index);
+            arr.push('Name : ' +value.IIFEName);
+            arr.push('Node : ' +value.IIFENode);
+        });
+        return arr;
     }
 
     static isDuplicateEntry(name,start,end){
@@ -36,7 +44,6 @@ class IIFEDeclarationFinder {
             let _name = value.IIFEName;
             let _start = value.IIFEASTNode.start; 
             let _end = value.IIFEASTNode.end + 2; 
-            //console.log('Checking : ' +_name +_start +_end +' with : ' +name +start +end);
             if(_name == name && _start == start && _end == end){
                  res = true;
             }
@@ -44,6 +51,9 @@ class IIFEDeclarationFinder {
         return res;
     }
 
+    static SubmitInitialCode(init){
+        this.initCode = init;
+    }
 
     static IIFEVariableDeclaration(rootNode) {
         rootNode.find(IIFE_VARIABLE_QUERY.target)
@@ -52,15 +62,15 @@ class IIFEDeclarationFinder {
                     if(IIFEVariableNode.value.declarations[0].init.callee!=undefined){
                         let callee = IIFEVariableNode.value.declarations[0].init.callee.type;
                         if(callee == 'FunctionExpression'){
-                            let _name = IIFEVariableNode.value.declarations[0].init.callee.id.name;
-                            let _node = IIFEVariableNode.value.declarations[0].init.callee;
-                            let _start = IIFEVariableNode.value.declarations[0].init.start;
-                            let _end = IIFEVariableNode.value.declarations[0].init.end;
-                            //console.log('Sending : ' +_name + _start +_end);
-                            //console.log('Result is : ' +this.isDuplicateEntry(_name,_start,_end));                            
-                            if(!this.isDuplicateEntry(_name,_start,_end)){
-                                IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                            let _name = 'Unnamed';
+                            if(IIFEVariableNode.value.declarations[0].init.callee.id != null){
+                              _name = IIFEVariableNode.value.declarations[0].init.callee.id.name;
                             }
+                            let _ASTnode = IIFEVariableNode.value.declarations[0].init.callee;
+                            let _initNode = this.initCode;
+                            let _funcDecl = new IIFEDeclaration(_name, _ASTnode, _initNode);
+                            IIFEDeclarationNodes.push(_funcDecl);
+                            _funcDecl.setIIFENode();
                         }
                     }   
                 }
@@ -72,16 +82,16 @@ class IIFEDeclarationFinder {
             .forEach(IIFEDeclarationNode => {
                 if ( IIFEDeclarationNode.value.expression.type == 'CallExpression'){
                     if(IIFEDeclarationNode.value.expression.callee.type == 'FunctionExpression'){
-                        if(IIFEDeclarationNode.value.expression.callee.id.name != 'undefined') {
-                            let _name = IIFEDeclarationNode.value.expression.callee.id.name;
-                            let _node = IIFEDeclarationNode.value.expression.callee;
-                            let _start = IIFEDeclarationNode.value.expression.start;
-                            let _end = IIFEDeclarationNode.value.expression.end;
-                            //console.log('Sending : ' +_name + _start +_end);
-                            //console.log('Result is : ' +this.isDuplicateEntry(_name,_start,_end));
-                            if(!this.isDuplicateEntry(_name,_start,_end)){
-                                IIFEDeclarationNodes.push(new IIFEDeclaration(_name, _node));
+                        if(IIFEDeclarationNode.value.expression.callee.id != 'undefined') {
+                            let _name = 'Unnamed';
+                            if(IIFEDeclarationNode.value.expression.callee.id != null){
+                                _name = IIFEDeclarationNode.value.expression.callee.id.name;
                             }
+                            let _ASTnode = IIFEDeclarationNode.value.expression.callee;
+                            let _initNode = this.initCode;
+                            let _funcDecl = new IIFEDeclaration(_name, _ASTnode, _initNode);
+                            IIFEDeclarationNodes.push(_funcDecl);
+                            _funcDecl.setIIFENode();
                         }
                     }
                 }        
