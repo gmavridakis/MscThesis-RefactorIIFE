@@ -15,14 +15,14 @@ beforeEach(() => {
 });
 
 test('number of IIFE declarations detected', () => {
+
     IIFEDeclarationFinder.SubmitInitialCode(initCode);
     iifeDeclarations = IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection);
     fileUtils.writeFileSync('src/test/results-iife.csv', JSON.stringify(IIFEDeclarationFinder.getIIFEDetails(),null,'\n'));    
 
-    console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
-    console.log(iifeDeclarations); 
-    console.log('--------------------------------------------------------------------------');
-
+    // console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
+    // console.log(iifeDeclarations); 
+    // console.log('--------------------------------------------------------------------------');
 
     expect(iifeDeclarations).toHaveLength(IIFE_DECLARATIONS);
 });
