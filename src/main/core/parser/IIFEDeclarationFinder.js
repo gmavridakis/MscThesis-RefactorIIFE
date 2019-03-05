@@ -40,6 +40,20 @@ class IIFEDeclarationFinder {
         this.initCode = init;
     }
 
+    /* 
+        The function getIIFEFunction() receives two objects :
+        a) _start --> {startline : 2 , startcolumn : 20 } 
+        b) _end --> {endline : 2 , endcolumn : 38 } 
+        and according to these it goes to the initial code (not AST code)
+        Init Code:
+        ------------
+        var x;
+        var l= (function(){  return 'test';})();
+        console.log('random text');
+        ------------
+        and will return an array with characters array[startline][startcolumn] - array[endline][endcolumn]
+        so in our example it would return : function(){  return 'test';}   
+    */
     static getIIFEFunction(_start,_end){
         //var $ = require("jquery");
         let output = [];
@@ -104,7 +118,7 @@ class IIFEDeclarationFinder {
         final_node = final_node.replace(/[\r\n]/g, "");        
         return final_node;
     }
-    
+
     /*
     static isDuplicateEntry(name,start,end){
         var $ = require("jquery");
