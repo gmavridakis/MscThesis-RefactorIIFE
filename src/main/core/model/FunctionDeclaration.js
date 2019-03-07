@@ -1,8 +1,21 @@
 class FunctionDeclaration {
 
+
+
+    // jscodeshift
+
     constructor(functionName, functionASTNode) {
         this.functionName = functionName;
         this.functionASTNode = functionASTNode;
+        /**
+         * iterate over body of functionDeclaration and create an object for each statement
+         */
+        this.statementList = null;
+
+        /* find return statement */
+        /*
+        jscodeshift(this.functionASTNode).find(...)
+        */
     }
 
     /**
@@ -21,6 +34,28 @@ class FunctionDeclaration {
         return this.functionASTNode.value.loc.end;
     }
 
+
+    getTypicalParameterCount(){
+        return -1;
+    }
+
+    getFunctionName(){
+        return null;
+    }
+
+    getFunctionType(){
+        return ""; /* NAMED, UNNAMED, ARROW */
+    }
+
+    isVoid(){
+        return false; /* */
+    }
+
+    getStatementList(){
+        return this.statementList;
+    }
+
+    
 }
 
 module.exports = FunctionDeclaration;

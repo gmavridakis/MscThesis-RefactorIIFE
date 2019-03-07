@@ -121,6 +121,10 @@ class IIFEDeclarationFinder {
             .find(IIFE_VARIABLE_QUERY.target)
             .filter(isIIFEVariableDeclaration)
             .forEach(IIFEVariableNode => {
+                /**
+                 * Construct here the IIFEDeclaration instance
+                 * possibly different constructor for each case ?
+                 */
                 let _astNode = IIFEVariableNode.value.declarations[0].init.callee;
                 this.pushNodesInfo(_astNode);
             })
