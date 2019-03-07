@@ -4,35 +4,59 @@
 
 "Name : Unnamed",
 
-"Node : function() { /* do some stuff here unnamed without var*/ }",
+"Node : function() { /* IIFE unnamed in simplest form */ }",
 
 "Index : 1",
 
 "Name : IIFE1",
 
-"Node : function IIFE1(){    //IIFE1    console.log('First IIFE expression!');}",
+"Node : function IIFE1(){    /* IIFE1 in simplest form */    console.log('IIFE1 in simplest form');    return '';}",
 
 "Index : 2",
 
 "Name : IIFE3",
 
-"Node : function IIFE3(){    //No question mark here IIFE3!}",
+"Node : function IIFE3(){    /* Variation with no question mark here at the end ... IIFE3! */}",
 
 "Index : 3",
 
-"Name : Unnamed",
+"Name : IIFE2",
 
-"Node : function() { /* do some stuff here varl */ return 'test';}",
+"Node : function IIFE2(){    /*IIFE2 named assigned to variable y*/}",
 
 "Index : 4",
 
-"Name : IIFE2",
+"Name : Unnamed",
 
-"Node : function IIFE2(){    //do some stuff var y IIFE 2/**/}",
+"Node : function(){    var test = 'test';    /* IIFE unnamed assigned to variable yy */    return test;}",
 
 "Index : 5",
 
 "Name : IIFE4",
 
-"Node : function IIFE4(){            //do some stuff internal var z        }"
+"Node : function IIFE4(){            /* nested IIFE4 assigned to variable z */        }",
+
+"Index : 6",
+
+"Name : Unnamed",
+
+"Node : function() {     /* Variation of unnamed IIFE with transition of parenthesis! */    return 'result';}",
+
+"Index : 7",
+
+"Name : test",
+
+"Node : function test() {    /* Void Variation of IIFE */    console.log('i am a void variation');}",
+
+"Index : 8",
+
+"Name : voidFuncVariation",
+
+"Node : function voidFuncVariation() {        /* nested void Variation */        console.log(x);    }",
+
+"Index : 9",
+
+"Name : Unnamed",
+
+"Node : ()=> {     /* Arrow Function IIFE Variation  */    return 'Another variation!';}"
 ]

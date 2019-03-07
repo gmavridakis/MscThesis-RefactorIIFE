@@ -6,13 +6,8 @@ class IIFEDeclaration {
         this.IIFENode = IIFENode;
     }
 
-    /**
-     * Returns the start position of the IIFE declaration (start line/column).
-     * @returns {*}
-     */
-
     getIIFENode(){
-        return this.IIFENode;
+        return this.IIFEASTNode;
     }
 
     getIIFEName(){
@@ -23,6 +18,11 @@ class IIFEDeclaration {
         return this.IIFEASTNode;
     }
 
+
+     /**
+     * Returns the start position of the IIFE declaration (start line/column).
+     * @returns {*}
+     */
     startLocation() {
         return {startline:this.IIFEASTNode.loc.start.line, startcolumn:this.IIFEASTNode.loc.start.column};
     }
