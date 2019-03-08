@@ -4,7 +4,7 @@ const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper'
 const fileUtils = require('../../../main/io/fileutil');
 const JSON = require('circular-json');
 
-const IIFE_DECLARATIONS = 10;
+const IIFE_DECLARATIONS = 14;
 const initCode = fileUtils.readFileSync('./src/test/resources/functions.js').trim();
 const nodesCollection = JSCodeshiftParser.parse(initCode);
 let iifeDeclarations;
@@ -17,11 +17,11 @@ beforeEach(() => {
 test('number of IIFE declarations detected', () => {
 
     iifeDeclarations = IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection);
-    fileUtils.writeFileSync('src/test/results-iife.csv', JSON.stringify(IIFEDeclarationFinder.getIIFEDetails(),null,'\n'));    
+    //fileUtils.writeFileSync('src/test/results-iife.csv', JSON.stringify(IIFEDeclarationFinder.getIIFEDetails(),null,'\n'));    
 
-    console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
-    //console.log(IIFEDeclarationFinder.getIIFEDetails()); 
-    console.log('--------------------------------------------------------------------------');
+    //console.log('--------------Final Results of IIFEDeclarationNodes Array-----------------');
+    //console.log(iifeDeclarations); 
+    //console.log('--------------------------------------------------------------------------');
 
     expect(iifeDeclarations).toHaveLength(IIFE_DECLARATIONS);
 });

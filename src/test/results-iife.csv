@@ -2,61 +2,53 @@
 
 "Index : 0",
 
-"Name : Unnamed",
-
-"Node : function() { /* IIFE unnamed in simplest form */ }",
+"Name : [object Object]",
 
 "Index : 1",
 
-"Name : IIFE1",
-
-"Node : function IIFE1(){    /* IIFE1 in simplest form */    console.log('IIFE1 in simplest form');    return '';}",
+"Name : [object Object]",
 
 "Index : 2",
 
-"Name : IIFE3",
-
-"Node : function IIFE3(){    /* Variation with no question mark here at the end ... IIFE3! */}",
+"Name : [object Object]",
 
 "Index : 3",
 
-"Name : IIFE2",
-
-"Node : function IIFE2(){    /*IIFE2 named assigned to variable y*/}",
+"Name : [object Object]",
 
 "Index : 4",
 
-"Name : Unnamed",
-
-"Node : function(){    var test = 'test';    /* IIFE unnamed assigned to variable yy */    return test;}",
+"Name : [object Object]",
 
 "Index : 5",
 
-"Name : IIFE4",
-
-"Node : function IIFE4(){            /* nested IIFE4 assigned to variable z */        }",
+"Name : [object Object]",
 
 "Index : 6",
 
-"Name : Unnamed",
-
-"Node : function() {     /* Variation of unnamed IIFE with transition of parenthesis! */    return 'result';}",
+"Name : [object Object]",
 
 "Index : 7",
 
-"Name : test",
-
-"Node : function test() {    /* Void Variation of IIFE */    console.log('i am a void variation');}",
+"Name : [object Object]",
 
 "Index : 8",
 
-"Name : voidFuncVariation",
-
-"Node : function voidFuncVariation() {        /* nested void Variation */        console.log(x);    }",
+"Name : [object Object]",
 
 "Index : 9",
 
-"Name : Unnamed",
+"Name : [object Object]",
 
-"Node : ()=> {     /* Arrow Function IIFE Variation  */    return 'Another variation!';}"
+"Index : 10",
+
+"Name : [object Object]",
+
+"Index : 11",
+
+"Name : [object Object]",
+
+"Index : 12",
+
+"Name : [object Object]"
 ]

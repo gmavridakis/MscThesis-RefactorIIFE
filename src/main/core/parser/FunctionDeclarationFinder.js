@@ -23,7 +23,7 @@ class FunctionDeclarationFinder {
                     // console.log('---------FUNCTION DECLARATION----------');
                     // console.log(functionDeclarationNode);
                     // console.log('---------');                
-                functionDeclarationNodes.push(new FunctionDeclaration(functionDeclarationNode.value.id.name, functionDeclarationNode));
+                    // functionDeclarationNodes.push(new FunctionDeclaration(functionDeclarationNode.value.id.name, functionDeclarationNode));
             });
 
         return functionDeclarationNodes;
