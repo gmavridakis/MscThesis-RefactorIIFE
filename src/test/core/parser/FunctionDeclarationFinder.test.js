@@ -4,7 +4,7 @@ const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper'
 const fileUtils = require('../../../main/io/fileutil');
 const JSON = require('circular-json');
 
-const IIFE_DECLARATIONS = 14;
+const IIFE_DECLARATIONS = 19;
 const initCode = fileUtils.readFileSync('./src/test/resources/functions.js').trim();
 const nodesCollection = JSCodeshiftParser.parse(initCode);
 let iifeDeclarations;

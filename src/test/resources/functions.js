@@ -4,23 +4,7 @@
     /* IIFE1 in simplest form with parameters */
     console.log("My name is " + last + ", " + first + " " + last + ".");
     console.log('IIFE1 in simplest form');
-    return '';
 }("James", "Bond"));
-
-let y;
-y = (function IIFE2(){
-    /*IIFE2 named assigned to variable y*/}());
-
-a,b = (function(b,c) { /* IIFE sequential expression */ })('koukos','anoiksh');
-
-var xx, yy = (function(){
-    var test = 'test';
-    /* IIFE unnamed assigned to variable yy */
-    return test;
-}());
-
-let x;
-x = x+1;
 
 (function IIFE3(c,d){
     /* Variation with no question mark here at the end ... IIFE3! */
@@ -28,14 +12,48 @@ x = x+1;
 
 var globalVar = "functionsExample";
 
-(void function() {
-    /* Void Variation unnamed of IIFE */
-    console.log('i am a void variation');
-}(t1,t2));
-  
 ( (a,b)=> { 
-    /* Arrow Function IIFE Variation  */
-    return 'Another variation!';
+    /* Arrow Function IIFE Variation 1 */
+})("mpampis","flu");
+
+a = ( (a,b)=> { 
+    /* Arrow Function IIFE Variation 2 */
+    return 'return_statement';
+})("mpampis","flu");
+
+a,b = ( (a)=> { 
+    /* Arrow Function IIFE Variation 3 */
+    return 'return_statement';
+})("mpampis");
+
+let y;
+
+y = (function IIFE2(){
+    /*IIFE2 named assigned to variable y*/
+    return '';
+}());
+
+a,b = (function(b,c) { /* IIFE sequential expression */ return 'return_statement!!!!' })('koukos','anoiksh');
+
+let x;
+x = x+1;
+  
+var x = (function() { /* IIFE unnamed assigned to variable */ })('testt');
+
+var xx, yy = (function(){
+    var test = 'test';
+    /* IIFE unnamed assigned to variable yy */
+    return test;
+}('opa_opa','kardia_moy_isoropa'));
+
+let a = ( (a,b)=> { 
+    /* Arrow Function IIFE Variation 4 */
+    return 'return_statement';
+})("mpampis","flu");
+
+let a,b = ( (a,b)=> { 
+    /* Arrow Function IIFE Variation 5 */
+    return 'return_statement';
 })("mpampis","flu");
 
 function outer() {
@@ -48,8 +66,10 @@ function outer() {
     }());
 
     function inner(value) {
-        var z = (function IIFE4(){
+        var z = (function IIFE4(a,b){
             /* nested IIFE4 assigned to variable z */
+            x = function(a,b){}
+            return 'return_statement';
         }('test'));
         console.log("value: " + value);
     }
@@ -63,7 +83,7 @@ var obj = {
 var result = ( function() { 
     /* Variation of unnamed IIFE with transition of parenthesis! */
     return 'result';
-}());
+}('testing'));
 
 
 (void function voidnamed(x,y) {
@@ -80,9 +100,12 @@ var result = ( function() {
     }
     /* Void Variation of IIFE */
     console.log('i am a void variation');
-  }());
+}());
 
-
+(void function() {
+    /* Void Variation unnamed of IIFE */
+    console.log('i am a void variation');
+}(t1,t2));
 
 console.log(globalVar);
 outer();

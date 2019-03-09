@@ -25,7 +25,7 @@ const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
         if(total_variable_declarators == 1){
             if(IIFEVariableNode.value.declarations[0].init !== null && IIFEVariableNode.value.declarations[0].init.callee !== undefined){
                 let _astNode = IIFEVariableNode.value.declarations[0].init.callee;
-                if(_astNode.type === 'FunctionExpression'){
+                if(_astNode.type === 'FunctionExpression' || _astNode.type === 'ArrowFunctionExpression'){
                     return true
                 }      
             } 
@@ -34,7 +34,7 @@ const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
             for(let declarators_index=0;declarators_index<total_variable_declarators;declarators_index++){
                 if(IIFEVariableNode.value.declarations[declarators_index].init !== null && IIFEVariableNode.value.declarations[declarators_index].init.callee !== undefined){
                     let _astNode = IIFEVariableNode.value.declarations[declarators_index].init.callee;
-                    if(_astNode.type === 'FunctionExpression'){
+                    if(_astNode.type === 'FunctionExpression' || _astNode.type === 'ArrowFunctionExpression'){
                         return true
                     }      
                 }                
@@ -53,7 +53,7 @@ const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
                 let expression = IIFEDeclarationNode.value.expression.expressions[expression_index];
                 if ( expression.right != undefined){
                     if(expression.right.callee!=undefined){
-                        if(expression.right.callee.type === 'FunctionExpression'){
+                        if(expression.right.callee.type === 'FunctionExpression' || expression.right.callee.type === 'ArrowFunctionExpression'){
                             return true
                         }
                     }
@@ -63,7 +63,7 @@ const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
         if(_astNode.type === 'AssignmentExpression'){
             if ( _astNode.right != undefined){
                 if(_astNode.right.callee!=undefined){
-                    if(_astNode.right.callee.type === 'FunctionExpression'){
+                    if(_astNode.right.callee.type === 'FunctionExpression'|| _astNode.right.callee.type === 'ArrowFunctionExpression'){
                         return true
                     }
                 }
@@ -160,7 +160,7 @@ class IIFEDeclarationFinder {
                     for(let expression_index=0;expression_index<total;expression_index++){
                         let expression = IIFEDeclarationNode.value.expression.expressions[expression_index];
                         if(expression.right!=undefined){
-                            if(expression.right.callee.type === 'FunctionExpression'){
+                            if(expression.right.callee.type === 'FunctionExpression' || expression.right.callee.type === 'ArrowFunctionExpression'){
                                 _astFunctionNode = expression.right.callee;
                             }
                         }
