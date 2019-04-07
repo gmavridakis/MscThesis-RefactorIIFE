@@ -1,3 +1,4 @@
+const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
 let statementList = [];
 
 class FunctionDeclaration {
@@ -6,16 +7,17 @@ class FunctionDeclaration {
 
     constructor(functionASTNode) {
         this.functionASTNode = functionASTNode;
+        FunctionDeclarationCollection.addFunctionInCollectionArray(functionASTNode); //add node in init Function Collection
         /**
          * iterate over body of functionDeclaration and create an object for each statement
          */
         this.statementList = null;
-        //console.log(this.getFunctionName());
+        // console.log(this.getFunctionName());
         // console.log(this.getFunctionType());
         // console.log(this.startLocation());
         // console.log(this.endLocation());
         // console.log(this.getTypicalParameterCount());
-        //console.log('Return of void : ' +this.isVoid());
+        // console.log('Return of void : ' +this.isVoid());
 
         /* find return statement */
         /*
@@ -27,6 +29,11 @@ class FunctionDeclaration {
      * Returns the start position of the IIFE declaration (start line/column).
      * @returns {*}
      */
+
+    getFunction(){
+        return this.functionASTNode;
+    }
+
     startLocation() {
         return {startline:this.functionASTNode.loc.start.line, startcolumn:this.functionASTNode.loc.start.column};
     }
@@ -38,6 +45,7 @@ class FunctionDeclaration {
     endLocation() {
         return {endline:this.functionASTNode.loc.end.line, endcolumn:this.functionASTNode.loc.end.column};
     }
+
 
     getTypicalParameterCount(){
         let total_params = 0;

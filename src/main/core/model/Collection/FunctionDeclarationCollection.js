@@ -1,15 +1,18 @@
-const FunctionDeclaration = require('../FunctionDeclaration');
+let FunctionArray = [];
 
 class FunctionDeclarationCollection{
     constructor() {
-        
+    }
+    
+    static addFunctionInCollectionArray(func){
+        FunctionArray.push(func);
     }
 
-    static getDeclarationCollection(){
-        FunctionDeclaration.call(this);
-        FunctionDeclarationCollection.prototype = Object.create(FunctionDeclaration.prototype);
-        FunctionDeclarationCollection.prototype.constructor = FunctionDeclarationCollection;
+    static getFunctionsInCollectionArray(){
+        return FunctionArray;
     }
 }
+
+
 
 module.exports = FunctionDeclarationCollection;

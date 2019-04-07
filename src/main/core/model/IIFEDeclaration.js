@@ -1,16 +1,17 @@
 const FunctionDeclaration = require('../../../main/core/model/FunctionDeclaration');
+const IIFEDeclarationCollection = require('../../../main/core/model/Collection/IIFEDeclarationCollection');
 class IIFEDeclaration {
 
     constructor(initASTNode, functionNode, filePath) {
         this.initASTNode = initASTNode;
         this.functionDeclaration = new FunctionDeclaration(functionNode);
         this.filePath = filePath;
-        
-        console.log(this.startLocation()); /* Checked in all cases */
-        console.log(this.endLocation()); /* Checked in all cases */
-        console.log(this.getType()); /* Checked in all cases */
-        console.log(this.getActualParameterDetails()); /* Checked in all cases */
-        console.log(this.getReturnDetails()); /* Checked in all cases */
+        IIFEDeclarationCollection.addIIFEInCollectionArray(initASTNode); //add node in init IIFE Collection
+        // console.log(this.startLocation()); /* Checked in all cases */
+        // console.log(this.endLocation()); /* Checked in all cases */
+        // console.log(this.getType()); /* Checked in all cases */
+        // console.log(this.getActualParameterDetails()); /* Checked in all cases */
+        // console.log(this.getReturnDetails()); /* Checked in all cases */
     }
 
      /**

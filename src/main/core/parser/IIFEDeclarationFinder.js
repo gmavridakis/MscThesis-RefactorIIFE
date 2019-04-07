@@ -1,6 +1,6 @@
 const j = require('./JSCodeshiftWrapper.js').j;
 const IIFEDeclaration = require('../model/IIFEDeclaration');
-let IIFEDeclarationNodes = [];
+//let IIFEDeclarationNodes = []; //array for testing purposes
 const IIFE_DECLARATION_QUERY = {target: j.ExpressionStatement};
 const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
 
@@ -110,17 +110,16 @@ class IIFEDeclarationFinder {
      * @returns {Array}
      */
     static getIIFEDeclarations(rootNode) {
-        //find all IIFEDeclaration AST nodes and push each of them to array
+        //find all IIFEDeclaration AST nodes and update model
         this.submitInitialCode(rootNode);
         this.iifeSimplestForm(rootNode);      
         this.iifeVariableDeclaration(rootNode); 
         this.iifeVariationVoid(rootNode);
         this.iifeVariationArrowFunction(rootNode);
         this.iifeAssignmentExpression(rootNode);
-        //console.log(IIFEDeclarationNodes);
-        return IIFEDeclarationNodes;
     }
 
+    /*
     static getIIFEDetails(){
         let $ = require("jquery");
         let arr = [];
@@ -130,13 +129,15 @@ class IIFEDeclarationFinder {
         });
         return arr;
     }
+    */
+    
     static submitInitialCode(init){
         this.initCode = init.toSource();   
     }
 
     static pushNodesInfo(_initASTNode,_astFunctionNode){
         let _funcDecl = new IIFEDeclaration(_initASTNode, _astFunctionNode,'..path is to be added');
-        IIFEDeclarationNodes.push(_funcDecl);                
+        //IIFEDeclarationNodes.push(_funcDecl);                
     }
 
     static iifeSimplestForm(rootNode){
