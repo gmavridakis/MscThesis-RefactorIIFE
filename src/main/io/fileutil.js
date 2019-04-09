@@ -44,6 +44,12 @@ function retrieveFilesInDirectory(directory, fileList, extension) {
 	return fileList;
 }
 
+exports.getUserPath = function getUserPath(){
+
+}
+
+
+
 exports.readFileSync = function readFileSync(filePath) {
     return fs.readFileSync(filePath, 'utf8');
 }
@@ -52,3 +58,6 @@ exports.writeFileSync = function writeFileSync(filePath, content) {
     fs.writeFileSync(filePath, content, 'utf-8');
 }
 
+exports.appendFileSync = function appendFileSync(filePath, content) {
+    fs.appendFileSync(filePath, content, 'utf-8');
+}
