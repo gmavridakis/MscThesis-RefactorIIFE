@@ -8,8 +8,16 @@ class IIFEDeclarationCollection{
         // IIFEDeclarationCollection.prototype.constructor = IIFEDeclarationCollection;
     }
     
-    static addIIFEInCollectionArray(iife){
-        IIFEArray.push(iife);
+    static addIIFEInCollectionArray(iife,path,params,returns,start,end){
+        let iife_obj = {
+            "IIFE" : iife,
+            "PATH" : path,
+            "ACTUAL_PARAMETERS" : params,
+            "RETURN_DETAILS" : returns,
+            "START" : start,
+            "END" : end
+        }
+        IIFEArray.push(iife_obj);
     }
 
     static getIIFEInCollectionArray(){

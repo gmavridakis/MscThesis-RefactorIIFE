@@ -3,7 +3,7 @@ const IIFEDeclaration = require('../model/IIFEDeclaration');
 //let IIFEDeclarationNodes = []; //array for testing purposes
 const IIFE_DECLARATION_QUERY = {target: j.ExpressionStatement};
 const IIFE_VARIABLE_QUERY = {target: j.VariableDeclaration};
-
+let filepath;
 /*  ---- Constants used in .filter START ----   */
     
     const isIIFESimplestForm = function(IIFEDeclarationNode){
@@ -109,7 +109,8 @@ class IIFEDeclarationFinder {
      * @param rootNode the root node of the code as returned from jscodeshift
      * @returns {Array}
      */
-    static getIIFEDeclarations(rootNode) {
+    static getIIFEDeclarations(rootNode,_filepath) {
+        this.filepath = _filepath;
         //find all IIFEDeclaration AST nodes and update model
         this.submitInitialCode(rootNode);
         this.iifeSimplestForm(rootNode);      
@@ -136,7 +137,7 @@ class IIFEDeclarationFinder {
     }
 
     static pushNodesInfo(_initASTNode,_astFunctionNode){
-        let _funcDecl = new IIFEDeclaration(_initASTNode, _astFunctionNode,'..path is to be added');
+        let _funcDecl = new IIFEDeclaration(_initASTNode, _astFunctionNode,this.filepath);
         //IIFEDeclarationNodes.push(_funcDecl);                
     }
 

@@ -6,7 +6,15 @@ class IIFEDeclaration {
         this.initASTNode = initASTNode;
         this.functionDeclaration = new FunctionDeclaration(functionNode);
         this.filePath = filePath;
-        IIFEDeclarationCollection.addIIFEInCollectionArray(initASTNode); //add node in init IIFE Collection
+        IIFEDeclarationCollection
+            .addIIFEInCollectionArray(
+                initASTNode, //add node in init IIFE Collection
+                filePath,
+                this.getActualParameterDetails(),
+                this.getReturnDetails(),
+                this.startLocation(),
+                this.endLocation()
+            ); 
         // console.log(this.startLocation()); /* Checked in all cases */
         // console.log(this.endLocation()); /* Checked in all cases */
         // console.log(this.getType()); /* Checked in all cases */
@@ -37,7 +45,7 @@ class IIFEDeclaration {
     getFunctionDeclaration(){
         return this.functionDeclaration;
     }
-
+    
     /* 
         Returns an object with 1. the total counts 
         and 2. an array with the arguments in order to use this info later
@@ -114,7 +122,7 @@ class IIFEDeclaration {
                 details.push('Something went wrong');
             }
         }
-        results = {'total counts' : count , ' paramaters : ' : details };
+        results = {'total_counts' : count , 'paramaters' : details };
         return results;
     }
 

@@ -7,7 +7,15 @@ class FunctionDeclaration {
 
     constructor(functionASTNode) {
         this.functionASTNode = functionASTNode;
-        FunctionDeclarationCollection.addFunctionInCollectionArray(functionASTNode); //add node in init Function Collection
+        FunctionDeclarationCollection
+            .addFunctionInCollectionArray(
+                functionASTNode,
+                this.getFunctionName(),
+                this.getFunctionType(),
+                this.getTypicalParameterCount(),
+                this.startLocation(),
+                this.endLocation()
+            );
         /**
          * iterate over body of functionDeclaration and create an object for each statement
          */
