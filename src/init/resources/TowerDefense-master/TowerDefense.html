@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+<head>
+    <title>Tower Defense</title>
+    <link type="text/css" rel="stylesheet" href="TowerDefense.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script type="text/javascript" src="js/TowerDefense.js"></script>
+
+    <script type="text/javascript" src="js/TowerDefense/Layers/Background.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Layers/Explosions.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Layers/Map.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Layers/PathfindingDebug.js"></script>
+
+    <script type="text/javascript" src="js/TowerDefense/Point.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Map.js"></script>    
+    <script type="text/javascript" src="js/TowerDefense/MapObject.js"></script>    
+    <script type="text/javascript" src="js/TowerDefense/Wall.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Turret.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Tower.js"></script>
+    <script type="text/javascript" src="js/TowerDefense/Pathfinding.js"></script>
+</head>
+
+<body>
+    <h1>Tower Defense</h1>
+    
+    <div id="playground">
+    
+        <ul id="weapons">
+            <li><a href="#" id="machine-gun">Add machine gun</a></li>
+            <li><a href="#" id="heavy-cannon">Add heavy cannon</a></li>
+            <li><a href="#" id="wall">Add wall</a></li>
+            <li><a href="#" id="explode">Explode</a></li>
+            <li><a href="#" id="resume">Resume</a></li>
+            <li><a href="#" id="pause">Pause</a></li>
+            
+        </ul>
+        
+    
+        <canvas width="800" height="600">
+        </canvas>
+    </div>
+    
+    <script type="text/javascript">
+    
+        var game = new TowerDefense($('canvas')[0])
+        
+        $('#weapons #machine-gun').click(function()
+        {
+            game.beginPlaceObject(TowerDefense.newTurret(game, 2, 5));
+        });
+    
+        $('#weapons #heavy-cannon').click(function()
+        {
+            game.beginPlaceObject(TowerDefense.newTurret(game, 2, 15));
+        });
+    
+        $('#weapons #wall').click(function()
+        {
+            game.beginPlaceObject(TowerDefense.newWall(game));
+        });
+
+        $('#weapons #explode').click(function() 
+        {
+            game.addExplosion();
+        });
+        
+        $('#pause').click(game.pause);
+        $('#resume').click(game.run);
+    </script>
+    
+</body>
+</html>
