@@ -46,7 +46,7 @@ ask('Give full path to js folder : (e.g. init/resources )')
             functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
             if(iifeDeclarations.length > 0){
                 exportCSV();
-                console.log('Check the results under : ' + path + '(results_iife.csv is generated successfully!)')    
+                console.log('Check the results under : ' + path + '(results.csv is generated successfully!)');    
             }
             else{
                 console.log('No IIFE was identified...');
@@ -57,12 +57,9 @@ ask('Give full path to js folder : (e.g. init/resources )')
 
 
 function exportCSV(){
-    let counter = 0;
-    let data = [];
-    _path = 'src/init/results_iife.csv';
+    counter = 0;
+    _path = 'src/init/results.csv';
     data = []; //init data before starting scanning iife functions
-
-    //first row of csv
     data.push(['counter', 
         'name', 
         'function_name',
@@ -75,35 +72,9 @@ function exportCSV(){
         'end_row', 
         'end_column'
     ]);
-    //let current_file = identified_files[i];
     for (let j=0; j<iifeDeclarations.length; j++) {
         counter++;
-        /*
-            //console.log(iifeDeclarations[j].IIFE);
-            //console.log(functionDeclarations[j].FUNCTION);
-            //name ready
-            //console.log(functionDeclarations[j].NAME);
-            //type ready
-            //console.log(functionDeclarations[j].TYPE);
-            //actual parameters ready
-            //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.total_counts);
-            //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.paramaters);
-            //typical parameters ready
-            //console.log(functionDeclarations[j].TYPICAL_PARAMETERS);
-            //return details ready
-            // console.log(iifeDeclarations[j].RETURN_DETAILS.has_return_value);
-            // console.log(iifeDeclarations[j].RETURN_DETAILS.returned_to_node);
-            // console.log(iifeDeclarations[j].RETURN_DETAILS.return_statement_node);
-            //path ready
-            //console.log(iifeDeclarations[j].PATH);
-            //start / end ready
-            // console.log(iifeDeclarations[j].START.startline);
-            // console.log(iifeDeclarations[j].START.startcolumn);
-            // console.log(iifeDeclarations[j].END.endline);
-            // console.log(iifeDeclarations[j].END.endcolumn);
-        */
-
-        data.push(['\n' + counter, 
+        data.push(['\n'+counter, 
             functionDeclarations[j].NAME,
             functionDeclarations[j].TYPE,
             iifeDeclarations[j].ACTUAL_PARAMETERS.total_counts,
@@ -114,7 +85,32 @@ function exportCSV(){
             iifeDeclarations[j].START.startcolumn,
             iifeDeclarations[j].END.endline,
             iifeDeclarations[j].END.endcolumn                        
-        ]);
-    }
+        ]);        
+    }   
     fileUtils.writeFileSync(_path, data);
 }
+
+/*
+    //console.log(iifeDeclarations[j].IIFE);
+    //console.log(functionDeclarations[j].FUNCTION);
+    //name ready
+    //console.log(functionDeclarations[j].NAME);
+    //type ready
+    //console.log(functionDeclarations[j].TYPE);
+    //actual parameters ready
+    //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.total_counts);
+    //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.paramaters);
+    //typical parameters ready
+    //console.log(functionDeclarations[j].TYPICAL_PARAMETERS);
+    //return details ready
+    // console.log(iifeDeclarations[j].RETURN_DETAILS.has_return_value);
+    // console.log(iifeDeclarations[j].RETURN_DETAILS.returned_to_node);
+    // console.log(iifeDeclarations[j].RETURN_DETAILS.return_statement_node);
+    //path ready
+    //console.log(iifeDeclarations[j].PATH);
+    //start / end ready
+    // console.log(iifeDeclarations[j].START.startline);
+    // console.log(iifeDeclarations[j].START.startcolumn);
+    // console.log(iifeDeclarations[j].END.endline);
+    // console.log(iifeDeclarations[j].END.endcolumn);
+*/
