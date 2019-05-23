@@ -58,20 +58,23 @@ ask('Give full path to js folder : (e.g. init/resources )')
 
 function exportCSV(){
     counter = 0;
-    _path = 'src/init/results.csv';
+    _path = 'src/init/results_backbone.csv';
+    _path = 'src/init/test.csv';
     data = []; //init data before starting scanning iife functions
-    data.push(['counter', 
-        'name', 
-        'function_name',
-        'real_parameter', 
-        'typical_parameter',
-        'returns_value', 
-        'file_name', 
-        'start_row',
-        'start_column',
-        'end_row', 
-        'end_column'
-    ]);
+    if(!fileUtils.fileCreated(_path)){
+        data.push(['counter', 
+            'name', 
+            'function_name',
+            'real_parameter', 
+            'typical_parameter',
+            'returns_value', 
+            'file_name', 
+            'start_row',
+            'start_column',
+            'end_row', 
+            'end_column'
+        ]);        
+    }
     for (let j=0; j<iifeDeclarations.length; j++) {
         counter++;
         data.push(['\n'+counter, 
@@ -86,8 +89,9 @@ function exportCSV(){
             iifeDeclarations[j].END.endline,
             iifeDeclarations[j].END.endcolumn                        
         ]);        
-    }   
-    fileUtils.writeFileSync(_path, data);
+    }        
+
+    fileUtils.appendFileSync(_path, data);
 }
 
 /*
