@@ -97,6 +97,25 @@ let filepath;
         }
         return false
     };
+
+    const isIIFEVariationDollar = function(IIFEDeclarationNode){
+        /* $(function({})() form of IIFE */
+        let _astNode = IIFEDeclarationNode.value.expression.callee;
+        if ( IIFEDeclarationNode.value.expression.type == 'CallExpression'){
+            if(_astNode.type == 'Identifier' || _astNode.type == 'CallExpression'){
+                if(_astNode.loc.identifierName == '$'){
+                    return true    
+                }
+                if(_astNode.callee){
+                    if(_astNode.callee.name == '$'){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false
+    };
+
 /*  ---- Constants used in .filter END ----*/
 
 class IIFEDeclarationFinder {
@@ -118,6 +137,7 @@ class IIFEDeclarationFinder {
         this.iifeVariationVoid(rootNode);
         this.iifeVariationArrowFunction(rootNode);
         this.iifeAssignmentExpression(rootNode);
+        this.iifeVariationDollar(rootNode);
     }
 
     /*
@@ -202,6 +222,33 @@ class IIFEDeclarationFinder {
                 }
             })         
     }
+
+    static iifeVariationDollar(rootNode) {
+        rootNode
+            .find(IIFE_DECLARATION_QUERY.target)
+            .filter(isIIFEVariationDollar)
+            .forEach(IIFEDeclarationNode => {
+                
+                if(IIFEDeclarationNode.value.expression.callee){
+                    
+                    if(IIFEDeclarationNode.value.expression.callee.type == 'CallExpression'){
+                        for(let i=0;i<IIFEDeclarationNode.value.expression.callee.arguments.length;i++){
+                            let _astFunctionNode =  IIFEDeclarationNode.value.expression.callee.arguments[i];
+                            if(_astFunctionNode.type == 'FunctionExpression'){
+                                this.pushNodesInfo(IIFEDeclarationNode,_astFunctionNode);                                                 
+                            }
+                        }
+                    }
+                    for(let i=0;i<IIFEDeclarationNode.value.expression.arguments.length;i++){
+                        let _astFunctionNode =  IIFEDeclarationNode.value.expression.arguments[i];
+                        if(_astFunctionNode.type=='FunctionExpression'){
+                            this.pushNodesInfo(IIFEDeclarationNode,_astFunctionNode);                                                        
+                        }
+                    }
+                }
+            })       
+    }
+
 
     static iifeVariationVoid(rootNode) {
         rootNode

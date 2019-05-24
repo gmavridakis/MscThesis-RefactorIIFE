@@ -15,7 +15,7 @@ function ask(question) {
     });
 }
 
-ask('Give full path to js folder : (e.g. init/resources )')
+ask('Give full path to js folder : (e.g. init/resources/gregor )')
     .then(function(reply) {
         let identified_files = fileUtils.getFilePaths(reply);
         console.log('Identified files : ' + identified_files);

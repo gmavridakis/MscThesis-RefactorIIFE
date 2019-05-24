@@ -172,8 +172,10 @@ class IIFEDeclaration {
         }
         let _type = this.getType();
         
+
         if(  _type === 'ExpressionStatement_AssignmentExpression' 
             || _type === 'ExpressionStatement_SequenceExpression'        
+            || _type === 'ExpressionStatement_CallExpression'
             || _type === 'VariableDeclaration'
         ){
             if(_type === 'ExpressionStatement_AssignmentExpression' ){
@@ -221,6 +223,58 @@ class IIFEDeclaration {
                 }
             }        
     
+            if(_type === 'ExpressionStatement_CallExpression'){
+
+                let _astNode = this.initASTNode.value.expression.callee;
+                if ( this.initASTNode.value.expression.type == 'CallExpression'){
+                    if(_astNode.type == 'Identifier' || _astNode.type == 'CallExpression'){
+                        if(_astNode.loc.identifierName == '$'){
+                            for(let i=0;i<this.initASTNode.value.expression.arguments.length;i++){
+                                let _astFunctionNode =  this.initASTNode.value.expression.arguments[i];
+                                if(_astFunctionNode.type=='FunctionExpression'){
+                                    let current_body = _astFunctionNode.body;
+                                    for(let _index=0;_index<current_body.body.length;_index++){
+                                        let current_body_type = current_body.body[_index].type;
+                                        if(current_body_type!=undefined && current_body_type==='ReturnStatement'){
+                                            let returned_to_node = '';
+                                            let return_statement_node = current_body.body[_index];
+                                            return_details = { 
+                                                'has_return_value' : true,
+                                                'returned_to_node' : returned_to_node , 
+                                                'return_statement_node' : return_statement_node
+                                            }                                         
+                                        }
+                                    }                                    
+                                }
+                            }
+                        }
+                        if(_astNode.callee){
+                            if(_astNode.callee.name == '$'){
+                                if(this.initASTNode.value.expression.callee.type == 'CallExpression'){
+                                    for(let i=0;i<this.initASTNode.value.expression.callee.arguments.length;i++){
+                                        let _astFunctionNode =  this.initASTNode.value.expression.callee.arguments[i];
+                                        if(_astFunctionNode.type == 'FunctionExpression'){
+                                            let current_body = _astFunctionNode.body;
+                                            for(let _index=0;_index<current_body.body.length;_index++){
+                                                let current_body_type = current_body.body[_index].type;
+                                                if(current_body_type!=undefined && current_body_type==='ReturnStatement'){
+                                                    let returned_to_node = '';
+                                                    let return_statement_node = current_body.body[_index];
+                                                    return_details = { 
+                                                        'has_return_value' : true,
+                                                        'returned_to_node' : returned_to_node , 
+                                                        'return_statement_node' : return_statement_node
+                                                    }     
+                                                }
+                                            }                                            
+                                        }
+                                    }                                                                        
+                                }                             
+                            }
+                        }
+                    }
+                }
+            }
             
             if(_type === 'VariableDeclaration'){
                 let _declarations = this.initASTNode.value;

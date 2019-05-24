@@ -1,11 +1,9 @@
-$(function(){
+$(function greg2(a,b){
     var Todo = Backbone.Model.extend();
-});
+    return a,b;
+})(a,b,c);
 
-(function(){
+$(function greg1(a,b){
     var Todo = Backbone.Model.extend();
+    return a,b;
 });
-
-(function(){
-    var Todo = Backbone.Model.extend();
-})();
