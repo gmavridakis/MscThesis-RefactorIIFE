@@ -89,7 +89,6 @@ function exportCSV(){
             iifeDeclarations[j].END.endline,
             iifeDeclarations[j].END.endcolumn,                        
         ]);
-        data.push(',');           
     }        
 
     fileUtils.appendFileSync(_path, data);
