@@ -59,7 +59,7 @@ ask('Give full path to js folder : (e.g. init/resources/gregor )')
 function exportCSV(){
     counter = 0;
     _path = 'src/init/results_backbone.csv';
-    _path = 'src/init/gregor.csv';
+    _path = 'src/init/gregor2.csv';
     data = []; //init data before starting scanning iife functions
     if(!fileUtils.fileCreated(_path)){
         data.push(['counter', 
@@ -73,7 +73,8 @@ function exportCSV(){
             'start_column',
             'end_row', 
             'end_column',
-        ]);        
+        ]);   
+        data.push(',');     
     }
     for (let j=0; j<iifeDeclarations.length; j++) {
         counter++;
