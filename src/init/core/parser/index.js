@@ -15,7 +15,7 @@ function ask(question) {
     });
 }
 
-ask('Give full path to js folder : (e.g. init/resources/gregor )')
+ask('Give full path to js folder : (e.g. gregor - current path is : src/init/resources )')
     .then(function(reply) {
         let identified_files = fileUtils.getFilePaths(reply);
         console.log('Identified files : ' + identified_files);
@@ -25,7 +25,7 @@ ask('Give full path to js folder : (e.g. init/resources/gregor )')
         else {
             //for each file
             for (let i = 0; i < identified_files.length; i++) {
-                let path = './src/' + reply + '/' + identified_files[i];
+                let path = './src/init/resources' + reply + '/' + identified_files[i];
                 console.log('Checking file : ' + path);
                 let initCode = fileUtils.readFileSync(path).trim();
                 //if .js not empty
@@ -58,7 +58,7 @@ ask('Give full path to js folder : (e.g. init/resources/gregor )')
 
 function exportCSV(){
     counter = 0;
-    _path = 'src/init/melonJS-master.csv';
+    _path = 'src/init/piskel-master.csv';
     //_path = 'src/init/gregor.csv';
     data = []; //init data before starting scanning iife functions
     if(!fileUtils.fileCreated(_path)){

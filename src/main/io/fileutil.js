@@ -10,11 +10,11 @@ const path = require('path');
 exports.getFilePaths = function getFilePaths(__dirname){
 	const fs = require('fs');
 	let jsfiles = [];
-	if(fs.existsSync('src/'+__dirname)){
-		fs.readdirSync('src/'+__dirname).forEach(file => {
+	if(fs.existsSync('src/init/resources/'+__dirname)){
+		fs.readdirSync('src/init/resources/'+__dirname).forEach(file => {
 			// gets the suffix if any
 			let ext = file.substr(file.lastIndexOf('.') + 1);
-			if(ext=='js' && !(fs.statSync('src/'+__dirname+'/'+file).isDirectory())){
+			if(ext=='js' && !(fs.statSync('src/init/resources/'+__dirname+'/'+file).isDirectory())){
 				jsfiles.push(file);
 			}
 		});
