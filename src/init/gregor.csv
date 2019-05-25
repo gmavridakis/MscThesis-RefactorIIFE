@@ -21,4 +21,4 @@ counter,name,function_name,real_parameter,typical_parameter,returns_value,file_n
 20,mpampis,NAMED,0,0,false,./src/init/resources/gregor/functions2.js,3,0,3,63,
 21,greg2,NAMED,3,2,true,./src/init/resources/gregor/functions2.js,5,0,8,10,
 22,greg1,NAMED,1,2,true,./src/init/resources/gregor/functions2.js,10,0,13,3,
-23,greg3,NAMED,4,0,false,./src/init/resources/gregor/functions2.js,15,0,17,12
+23,greg3,NAMED,4,0,false,./src/init/resources/gregor/functions2.js,15,0,17,12,
