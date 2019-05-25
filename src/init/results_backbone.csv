@@ -8,6 +8,6 @@ counter,name,function_name,real_parameter,typical_parameter,returns_value,file_n
 7,-,UNNAMED,1,1,FALSE,./src/init\resources\backbone-master\test/view.js,1,0,516,10
 1,-,UNNAMED,2,2,FALSE,./src/init\resources\backbone-master\docs\js/jquery.lazyload.js,15,0,210,19
 1,-,UNNAMED,2,2,FALSE,./src/init\resources\backbone-master\examples/backbone.localStorage.js,7,0,184,4
-1,-,UNNAMED,1,0,false,./src/init\resources\backbone-master\examples\todos/todos.js,7,0,234,3,
-1,-,UNNAMED,1,1,false,./src/init\resources\backbone-master/backbone-min.js,1,0,1,24968,
-2,-,UNNAMED,1,1,false,./src/init\resources\backbone-master/backbone.js,8,0,2096,3,
+1,-,UNNAMED,1,0,false,./src/init\resources\backbone-master\examples\todos/todos.js,7,0,234,3
+1,-,UNNAMED,1,1,false,./src/init\resources\backbone-master/backbone-min.js,1,0,1,24968
+2,-,UNNAMED,1,1,false,./src/init\resources\backbone-master/backbone.js,8,0,2096,3
