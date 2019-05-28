@@ -58,7 +58,7 @@ ask('Give full path to js folder : (e.g. gregor - current path is : src/init/res
 
 function exportCSV(){
     counter = 0;
-    _path = 'src/init/piskel-master.csv';
+    _path = 'src/init/test.csv';
     //_path = 'src/init/gregor.csv';
     data = []; //init data before starting scanning iife functions
     if(!fileUtils.fileCreated(_path)){
