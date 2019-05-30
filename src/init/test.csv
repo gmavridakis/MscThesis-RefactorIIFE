@@ -1,3 +1,0 @@
-counter,name,function_name,real_parameter,typical_parameter,returns_value,file_name,start_row,start_column,end_row,end_column,
-1,-,UNNAMED,0,0,false,./src/init/resources/test.js,5,0,5,55,
-2,IIFE1,NAMED,2,3,false,./src/init/resources/test.js,7,0,11,20,

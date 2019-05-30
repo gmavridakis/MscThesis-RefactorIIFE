@@ -30,6 +30,28 @@ exports.getFilePaths = function getFilePaths(__dirname){
 	}
 } 
 
+exports.getRecursivePaths = function getRecursivePaths(__dirname,files_){
+	const fs = require('fs');
+	files_ = files_ || [];
+	let path = 'src/init/resources/'+__dirname;
+	if(fs.existsSync(path)){
+		fs.readdirSync(path).forEach(file => {
+			if(fs.statSync(path+'/'+file).isDirectory()){
+				console.log(file);
+				getRecursivePaths(__dirname+'/'+file,files_);
+			}else{
+				let ext = file.substr(file.lastIndexOf('.') + 1);
+				if(ext=='js'){
+					files_.push(path+'/'+file);
+				}
+			}
+		});
+		return files_;
+	}else{
+		return -1;
+	}	
+} 
+
 exports.fileCreated = function fileCreated(filepath){
 	return fs.existsSync(filepath) ? true : false;
 }
