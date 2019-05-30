@@ -31,13 +31,9 @@ ask('Give full path to js folder : (e.g. gregor - current path is : src/init/res
                 console.log('Checking file : ' + path);
                 // //if .js not empty
                 if ( validInit(path)) {
-                    console.log('validated')
                     let initCode = fileUtils.readFileSync(path).trim();
-                    console.log(initCode);
-                     //initialize model
-                     let nodesCollection = JSCodeshiftParser.parse(initCode);
-                     console.log('nodecollections : ');
-                     console.log(nodesCollection);
+                    // initialize model
+                    let nodesCollection = JSCodeshiftParser.parse(initCode);
                     let filename = identified_files[i];
                     IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
                     iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
