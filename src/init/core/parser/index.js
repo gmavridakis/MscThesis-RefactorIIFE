@@ -65,29 +65,27 @@ ask('Give full path to js folder : (e.g. gregor - current path is : src/init/res
 
 function validInit(path){
 /*
-    *** BELOW ERROR IS GENERATED DURING FILE READING - AVOID CRUSHING ***
-        (function(factory) {
-            // Support three module loading scenarios
-            if (typeof define === 'function' && define['amd']) {
-                // [1] AMD anonymous module
-                define(['exports', 'require'], factory);
-            } else if (typeof exports === 'object' && typeof module === 'object') {
-                // [2] CommonJS/Node.js
-                factory(module['exports'] || exports);  // module.exports is for Node.js
-            } else {
-                // [3] No module loader (plain <script> tag) - put directly in global namespace
-                factory(window['ko'] = {});
-            }
-        }(function(koExports, amdRequire){
- */
+    *** BELOW ERRORS ARE GENERATED DURING FILE READING - AVOID CRUSHING ***
+*/
     let initCode = fileUtils.readFileSync(path).trim();
     if(
         initCode != '' 
+        // knockout-master
         && initCode != '}());'
         && !initCode.includes('// [3] No module loader (plain <script> tag) - put directly in global namespace')
         && !initCode.includes('// (0, eval)(\'this\') is a robust way of getting a reference to the global object')
         && !initCode.includes('Should be able to parse object literals containing child objects, arrays, function literals, and newlines')
         && !initCode.includes('Should be able to chain templates, rendering one from inside another')
+        // added for melonJS-master
+        && !initCode.includes('Spatial Plugin - Adds support for stereo and 3D audio where Web Audio is supported.')
+        && !initCode.includes('jQuery v1.8.3 jquery.com | jquery.org/license */')
+        // added for piskel-master
+        && !initCode.includes('//# sourceMappingURL=gif.js.map')
+        && !initCode.includes('zlib.js 2012 - imaya [ https://github.com/imaya/zlib.js ] The MIT License')
+        && !initCode.includes('{\"tests\" : [\"pen.drawing.json\",\"bucket.drawing.json\",\"color.picker.2.json\"')
+        && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.browser.js'
+        && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.pensize.js'
+        && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.perf.js'
         ){
         return true;
     }
