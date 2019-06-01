@@ -32,9 +32,10 @@ ask('Give full path to js folder : (e.g. gregor - current path is : src/init/res
                 // //if .js not empty
                 if ( validInit(path)) {
                     let initCode = fileUtils.readFileSync(path).trim();
+                    //console.log(initCode);
+                    console.log(JSCodeshiftParser.parse(initCode));
                     // initialize model
                     let nodesCollection = JSCodeshiftParser.parse(initCode);
-                    let filename = identified_files[i];
                     IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
                     iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
                     console.log(iifeDeclarations);
@@ -82,6 +83,8 @@ function validInit(path){
         && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.browser.js'
         && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.pensize.js'
         && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.perf.js'
+        // added for bluebird
+        && path!='./src/init/resources/bluebird-master/bluebird-master/tools/job-runner/job-runner.js'
         ){
         return true;
     }

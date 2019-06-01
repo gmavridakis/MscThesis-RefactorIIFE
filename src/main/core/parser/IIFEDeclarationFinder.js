@@ -129,6 +129,7 @@ class IIFEDeclarationFinder {
      * @returns {Array}
      */
     static getIIFEDeclarations(rootNode,_filepath) {
+        // console.log('In here!');
         this.filepath = _filepath;
         //find all IIFEDeclaration AST nodes and update model
         this.submitInitialCode(rootNode);
