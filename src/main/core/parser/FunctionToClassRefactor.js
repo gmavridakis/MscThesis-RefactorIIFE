@@ -15,7 +15,7 @@ class FunctionToClassRefactor {
     constructor() {}
     
     /**
-     * Returns an array of IIFEDeclaration objects.
+     * Refactor functions to ES6 Classes
      * @param rootNode the root node of the code as returned from jscodeshift
      * @returns {Array}
      */

@@ -20,7 +20,7 @@ function ask(question) {
 ask('Give full path to js folder : (e.g. ref-class - current path is : src/init/resources )')
     .then(function(reply) {
         initIdentification(reply);
-        //refactorFunctionToClass(reply);
+        //refactorFunctionToClass(reply); --> In Progress
     }
 ).finally(process.exit);
 
