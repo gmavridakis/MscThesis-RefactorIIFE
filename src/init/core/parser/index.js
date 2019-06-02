@@ -1,8 +1,10 @@
+const fileUtils = require('../../../main/io/fileutil');
+const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
 const IIFEDeclarationFinder = require('../../../main/core/parser/IIFEDeclarationFinder');
+const IIFEFunctionRefactor = require('../../../main/core/parser/FunctionToClassRefactor');
 const IIFEDeclarationCollection = require('../../../main/core/model/Collection/IIFEDeclarationCollection');
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
-const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
-const fileUtils = require('../../../main/io/fileutil');
+
 
 var Promise = require('bluebird');
 
@@ -15,49 +17,75 @@ function ask(question) {
     });
 }
 
-ask('Give full path to js folder : (e.g. gregor - current path is : src/init/resources )')
+ask('Give full path to js folder : (e.g. ref-class - current path is : src/init/resources )')
     .then(function(reply) {
-        // let paths = fileUtils.getRecursivePaths(reply);
-        // console.log(paths);
-        let identified_files = fileUtils.getRecursivePaths(reply);
-        console.log('Identified ('+identified_files.length +') files in total! ');
-        if (identified_files == '-1') {
-            console.log('No IIFE was identified...');
-        } 
-        else {
-            //for each file
-            for (let i = 0; i < identified_files.length; i++) {
-                let path = './' + identified_files[i];
-                console.log('Checking file : ' + path);
-                // //if .js not empty
-                if ( validInit(path)) {
-                    let initCode = fileUtils.readFileSync(path).trim();
-                    //console.log(initCode);
-                    console.log(JSCodeshiftParser.parse(initCode));
-                    // initialize model
-                    let nodesCollection = JSCodeshiftParser.parse(initCode);
-                    IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
-                    iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
-                    console.log(iifeDeclarations);
-                } else {
-                    console.log('Proceeding...');
-                }
-            }
-
-            // prepare to write data to csv
-            iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
-            functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
-            if(iifeDeclarations.length > 0){
-                exportCSV();
-                console.log('Check the results under : ' + path + '(results.csv is generated successfully!)');    
-            }
-            else{
-                console.log('No IIFE was identified...');
-            }                        
-        }
+        initIdentification(reply);
+        //refactorFunctionToClass(reply);
     }
 ).finally(process.exit);
 
+function refactorFunctionToClass(reply){
+    let identified_files = fileUtils.getRecursivePaths(reply);
+    console.log('Identified ('+identified_files.length +') files in total! ');
+    if (identified_files == '-1') {
+        console.log('No IIFE was identified...');
+    } 
+    else {
+        //for each file
+        for (let i = 0; i < identified_files.length; i++) {
+            let path = './' + identified_files[i];
+            console.log('Checking file : ' + path);
+            // //if .js not empty
+            if ( validInit(path)) {
+                let initCode = fileUtils.readFileSync(path).trim();
+                let nodesCollection = JSCodeshiftParser.parse(initCode);
+                //console.log(nodesCollection);
+                IIFEFunctionRefactor.classRefactor(nodesCollection);
+            }
+        }
+    }
+}
+
+function initIdentification(reply){
+    // let paths = fileUtils.getRecursivePaths(reply);
+    // console.log(paths);
+    let identified_files = fileUtils.getRecursivePaths(reply);
+    console.log('Identified ('+identified_files.length +') files in total! ');
+    if (identified_files == '-1') {
+        console.log('No IIFE was identified...');
+    } 
+    else {
+        //for each file
+        for (let i = 0; i < identified_files.length; i++) {
+            let path = './' + identified_files[i];
+            console.log('Checking file : ' + path);
+            // //if .js not empty
+            if ( validInit(path)) {
+                let initCode = fileUtils.readFileSync(path).trim();
+                // console.log(initCode);
+                // console.log(JSCodeshiftParser.parse(initCode));
+                // initialize model
+                let nodesCollection = JSCodeshiftParser.parse(initCode);
+                IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
+                iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
+                console.log(iifeDeclarations);
+            } else {
+                console.log('Proceeding...');
+            }
+        }
+
+        // prepare to write data to csv
+        iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
+        functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
+        if(iifeDeclarations.length > 0){
+            exportCSV();
+            console.log('Check the results under : ' + path + '(results.csv is generated successfully!)');    
+        }
+        else{
+            console.log('No IIFE was identified...');
+        }                        
+    }    
+}
 
 
 function validInit(path){
