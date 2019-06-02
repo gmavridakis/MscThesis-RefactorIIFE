@@ -1,4 +1,4 @@
-Project Structure:
+### Project Structure
 
 1) init: start of code
 	1) core/parser: tests for parsing/detection of the code structures
