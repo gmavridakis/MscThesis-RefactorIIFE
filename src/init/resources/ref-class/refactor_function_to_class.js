@@ -1,9 +1,9 @@
 function Controller(param1, param2) {
-    const name = "dhruvdutt";
-    let age = 21;
+    const name = "a_name";
+    let age = 25;
   }
   
-  Controller.prototype.name = "Dhruvdutt";
+  Controller.prototype.name = "a_name_@";
   
   Controller.prototype.contributeTo = function(param) {
     var foo = "webpack";
@@ -24,6 +24,11 @@ function Controller(param1, param2) {
   
   Object.defineProperty(Controller.prototype, "lastname", {
     get: function() {
-      return "Jadhav";
+      return "Mavridakis";
     }
   });
+
+  (function Controller(param1, param2) {
+    const name = "a_name";
+    let age = 25;
+  })()
