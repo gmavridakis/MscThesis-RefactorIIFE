@@ -14,7 +14,6 @@ class FunctionToClassRefactor {
 
     constructor() {}
     
-
     /**
      * Returns an array of IIFEDeclaration objects.
      * @param rootNode the root node of the code as returned from jscodeshift
