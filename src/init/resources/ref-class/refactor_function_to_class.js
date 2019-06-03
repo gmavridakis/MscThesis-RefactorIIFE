@@ -1,34 +1,29 @@
 function Controller(param1, param2) {
-    const name = "a_name";
-    let age = 25;
-  }
-  
-  Controller.prototype.name = "a_name_@";
-  
-  Controller.prototype.contributeTo = function(param) {
-    var foo = "webpack";
-  };
-  
-  Controller.staticMethod = function(param) {
-    var bar = "webpack-cli";
-  };
-  
-  Object.defineProperty(Controller.prototype, "hello", {
-    get: function() {
-      return "world";
-    },
-    set: function(name) {
-      console.log("Do anything with " + name);
-    }
-  });
-  
-  Object.defineProperty(Controller.prototype, "lastname", {
-    get: function() {
-      return "Mavridakis";
-    }
-  });
+  const name = "Grigoris";
+  let age = 26;
+}
 
-  (function Controller(param1, param2) {
-    const name = "a_name";
-    let age = 25;
-  })()
+Controller.prototype.name = "Mavridakis";
+
+Controller.prototype.contributeTo = function(param) {
+  var foo = "mavr";
+};
+
+Controller.staticMethod = function(param) {
+  var bar = "webpack-cli";
+};
+
+Object.defineProperty(Controller.prototype, "hello", {
+  get: function() {
+    return "world";
+  },
+  set: function(name) {
+    console.log("Do anything with " + name);
+  }
+});
+
+Object.defineProperty(Controller.prototype, "lastname", {
+  get: function() {
+    return "gregorio";
+  }
+});

@@ -20,7 +20,8 @@ function ask(question) {
 ask('Give full path to js folder : (e.g. ref-class - current path is : src/init/resources )')
     .then(function(reply) {
         initIdentification(reply);
-        //refactorFunctionToClass(reply); --> In Progress
+        /* completed function to class refactor -> resource : 'ref-class' */
+        //refactorFunctionToClass(reply); 
     }
 ).finally(process.exit);
 
@@ -35,12 +36,16 @@ function refactorFunctionToClass(reply){
         for (let i = 0; i < identified_files.length; i++) {
             let path = './' + identified_files[i];
             console.log('Checking file : ' + path);
-            // //if .js not empty
+             //if .js not empty
             if ( validInit(path)) {
                 let initCode = fileUtils.readFileSync(path).trim();
                 let nodesCollection = JSCodeshiftParser.parse(initCode);
                 //console.log(nodesCollection);
-                IIFEFunctionRefactor.classRefactor(nodesCollection);
+                let refactored_class = IIFEFunctionRefactor.classRefactor(nodesCollection);
+                console.log('*** Before : ***');
+                console.log(initCode);
+                console.log('*** After : ***');
+                console.log(refactored_class);
             }
         }
     }
