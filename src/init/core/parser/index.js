@@ -19,11 +19,59 @@ function ask(question) {
 
 ask('Give full path to js folder : (e.g. ref-class - current path is : src/init/resources )')
     .then(function(reply) {
-        initIdentification(reply);
+        //initIdentification(reply);
         /* completed function to class refactor -> resource : 'ref-class' */
         //refactorFunctionToClass(reply); 
+        findVariablesInFiles(reply);
     }
 ).finally(process.exit);
+
+function findVariablesInFiles(reply){
+    let identified_files = fileUtils.getRecursivePaths(reply);
+    console.log('Identified ('+identified_files.length +') files in total! ');
+    if (identified_files == '-1') {
+        console.log('No IIFE was identified...');
+    } 
+    else {
+        //for each file
+        for (let i = 0; i < identified_files.length; i++) {
+            let path = './' + identified_files[i];
+            console.log('Checking file : ' + path);
+             //if .js not empty
+            if ( validInit(path)) {
+                let initCode = fileUtils.readFileSync(path).trim();
+                var tern = require("tern")
+                var estraverse = require("estraverse")
+                let test = "var a = 5; d = 4; a += 10; "
+                var ternServer = new tern.Server({})
+                var identifierPositions = []
+                ternServer.on("postParse", function(ast){
+                    estraverse.traverse(ast, {
+                        enter: function(node){
+                            if (node.type === "Identifier") {
+                                identifierPositions.push(node.end)
+                            }
+                        }
+                    })
+                })
+                ternServer.addFile(path, initCode)
+                
+                identifierPositions.forEach(function(identifierPosition){
+                    var requestDetails = {
+                        query: {
+                            type: "definition",
+                            file: path,
+                            end: identifierPosition
+                        }
+                    }
+                    ternServer.request(requestDetails, function(error, success){
+                        console.log(success)
+                    })
+                })     
+            }
+        }
+    }    
+}
 
 function refactorFunctionToClass(reply){
     let identified_files = fileUtils.getRecursivePaths(reply);
