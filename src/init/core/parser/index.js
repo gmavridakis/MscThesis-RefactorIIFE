@@ -17,7 +17,7 @@ function ask(question) {
     });
 }
 
-ask('Give full path to js folder : (e.g. ref-class - current path is : src/init/resources )')
+ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
         //initIdentification(reply);
         /* completed function to class refactor -> resource : 'ref-class' */
@@ -48,26 +48,34 @@ function findVariablesInFiles(reply){
                 ternServer.on("postParse", function(ast){
                     estraverse.traverse(ast, {
                         enter: function(node){
-                            if (node.type === "Identifier") {
-                                identifierPositions.push(node.end)
+                            if (node.type === "Identifier") {                            
+                                identifierPositions.push(node)
                             }
                         }
                     })
                 })
                 ternServer.addFile(path, initCode)
-                
-                identifierPositions.forEach(function(identifierPosition){
+
+                let counter=0;
+                identifierPositions.forEach( (node) => {
+                    counter++;
+                    console.log('---------');
+                    console.log(counter +'.');
+                    console.log('identifierName : ');
+                    console.log(node.name);                    
                     var requestDetails = {
                         query: {
                             type: "definition",
                             file: path,
-                            end: identifierPosition
+                            end: node.end
                         }
                     }
                     ternServer.request(requestDetails, function(error, success){
-                        console.log(success)
-                    })
-                })     
+                        console.log('TernInfo : ');
+                        console.log(success);                            
+                    })  
+                    console.log('---------');                  
+                })
             }
         }
     }    
