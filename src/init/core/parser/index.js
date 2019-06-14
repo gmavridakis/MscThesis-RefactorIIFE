@@ -42,18 +42,26 @@ function findVariablesInFiles(reply){
                 let initCode = fileUtils.readFileSync(path).trim();
                 var tern = require("tern")
                 var estraverse = require("estraverse")
-                let test = "var a = 5; d = 4; a += 10; "
                 var ternServer = new tern.Server({})
                 var identifierPositions = []
                 ternServer.on("postParse", function(ast){
                     estraverse.traverse(ast, {
-                        enter: function(node){
-                            if (node.type === "Identifier") {                            
-                                identifierPositions.push(node)
+                        enter: function (node, parent) {
+                            if (node.type == 'FunctionExpression' || node.type == 'FunctionDeclaration')
+                                return estraverse.VisitorOption.Skip;
+                        },
+                        leave: function (node, parent) {
+                            console.log(node.type);
+                            if (node.type == 'Identifier'){
+                                identifierPositions.push(node);
+                                // console.log('----');
+                                // console.log(node.name);
+                                // console.log('----');
                             }
                         }
                     })
                 })
+
                 ternServer.addFile(path, initCode)
 
                 let counter=0;
