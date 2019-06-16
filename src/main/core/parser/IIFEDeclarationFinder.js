@@ -140,26 +140,13 @@ class IIFEDeclarationFinder {
         this.iifeAssignmentExpression(rootNode);
         this.iifeVariationDollar(rootNode);
     }
-
-    /*
-    static getIIFEDetails(){
-        let $ = require("jquery");
-        let arr = [];
-        $.each( IIFEDeclarationNodes, function( index, value ){
-            arr.push('Index : ' +index);
-            arr.push('Name : ' +value);
-        });
-        return arr;
-    }
-    */
     
     static submitInitialCode(init){
         this.initCode = init.toSource();   
     }
 
     static pushNodesInfo(_initASTNode,_astFunctionNode){
-        let _funcDecl = new IIFEDeclaration(_initASTNode, _astFunctionNode,this.filepath);
-        //IIFEDeclarationNodes.push(_funcDecl);                
+        let _funcDecl = new IIFEDeclaration(_initASTNode, _astFunctionNode,this.filepath);             
     }
 
     static iifeSimplestForm(rootNode){

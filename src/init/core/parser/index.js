@@ -1,6 +1,7 @@
 const fileUtils = require('../../../main/io/fileutil');
 const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
 const IIFEDeclarationFinder = require('../../../main/core/parser/IIFEDeclarationFinder');
+const GlobalVariableFinder = require('../../../main/core/parser/GlobalVariableFinder');
 const IIFEFunctionRefactor = require('../../../main/core/parser/FunctionToClassRefactor');
 const IIFEDeclarationCollection = require('../../../main/core/model/Collection/IIFEDeclarationCollection');
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
@@ -19,10 +20,9 @@ function ask(question) {
 
 ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
-        //initIdentification(reply);
-        /* completed function to class refactor -> resource : 'ref-class' */
-        //refactorFunctionToClass(reply); 
-        findVariablesInFiles(reply);
+        //initIdentification(reply); /* Main Function For Report of IIFEs */
+        //refactorFunctionToClass(reply); /* Refactor Function to ES6 class */
+        findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file */
     }
 ).finally(process.exit);
 
@@ -40,50 +40,10 @@ function findVariablesInFiles(reply){
              //if .js not empty
             if ( validInit(path)) {
                 let initCode = fileUtils.readFileSync(path).trim();
-                var tern = require("tern")
-                var estraverse = require("estraverse")
-                var ternServer = new tern.Server({})
-                var identifierPositions = []
-                ternServer.on("postParse", function(ast){
-                    estraverse.traverse(ast, {
-                        enter: function (node, parent) {
-                            if (node.type == 'FunctionExpression' || node.type == 'FunctionDeclaration')
-                                return estraverse.VisitorOption.Skip;
-                        },
-                        leave: function (node, parent) {
-                            console.log(node.type);
-                            if (node.type == 'Identifier'){
-                                identifierPositions.push(node);
-                                // console.log('----');
-                                // console.log(node.name);
-                                // console.log('----');
-                            }
-                        }
-                    })
-                })
-
-                ternServer.addFile(path, initCode)
-
-                let counter=0;
-                identifierPositions.forEach( (node) => {
-                    counter++;
-                    console.log('---------');
-                    console.log(counter +'.');
-                    console.log('identifierName : ');
-                    console.log(node.name);                    
-                    var requestDetails = {
-                        query: {
-                            type: "definition",
-                            file: path,
-                            end: node.end
-                        }
-                    }
-                    ternServer.request(requestDetails, function(error, success){
-                        console.log('TernInfo : ');
-                        console.log(success);                            
-                    })  
-                    console.log('---------');                  
-                })
+                let nodesCollection = JSCodeshiftParser.parse(initCode);
+                let globals = GlobalVariableFinder.getGlobalVariables(nodesCollection);
+                exportRefactorJS(globals,identified_files[i]);
+                //GlobalVariableFinder.TernVariableIdentifier(initCode,path);
             }
         }
     }    
@@ -147,7 +107,7 @@ function initIdentification(reply){
         iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
         functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
         if(iifeDeclarations.length > 0){
-            exportCSV();
+            exportReportCSV();
             console.log('Check the results under : ' + path + '(results.csv is generated successfully!)');    
         }
         else{
@@ -191,7 +151,20 @@ function validInit(path){
 
 }
 
-function exportCSV(){
+function exportRefactorJS(refactored_data,path){
+    let file_name = 'refactored_' +path.substring(path.lastIndexOf("/")+1,path.length);
+    let _path = path.substring(0, path.lastIndexOf("/")+1)+file_name ;
+    data = []; //init data before starting scanning iife functions
+    if(!fileUtils.fileCreated(path)){
+        console.log(refactored_data);
+        refactored_data.forEach(expr => {
+            expression = JSON.stringify(expr.expression).replace(/\"/g, "") +'\n';
+            fileUtils.appendFileSync(_path, expression);
+        })
+    }
+}
+
+function exportReportCSV(){
     counter = 0;
     _path = 'src/init/test.csv';
     //_path = 'src/init/gregor.csv';

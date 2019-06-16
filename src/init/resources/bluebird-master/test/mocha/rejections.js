@@ -3,7 +3,11 @@ var testUtils = require("./helpers/util.js");
 
 describe("Using as a rejection reason", function() {
     var nullObject = (function() {
-        var es5 = (function(){"use strict";
+        var es5
+        
+        
+        
+        "use strict";
             return this;
         })() === undefined;
         if (es5) {

@@ -30,7 +30,10 @@ exports.getRecursivePaths = function getRecursivePaths(__dirname,files_){
 } 
 
 exports.fileCreated = function fileCreated(filepath){
-	return fs.existsSync(filepath) ? true : false;
+	if(fs.existsSync(filepath) && filepath.includes('refactored')){
+		return true;
+	}
+	return false;
 }
 
 exports.readFileSync = function readFileSync(filePath) {
