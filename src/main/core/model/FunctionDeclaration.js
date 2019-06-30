@@ -10,6 +10,7 @@ class FunctionDeclaration {
         FunctionDeclarationCollection
             .addFunctionInCollectionArray(
                 functionASTNode,
+                this.getES6Refactor(),
                 this.getFunctionName(),
                 this.getFunctionType(),
                 this.getTypicalParameterCount(),
@@ -40,6 +41,29 @@ class FunctionDeclaration {
 
     getFunction(){
         return this.functionASTNode;
+    }
+    
+    getSource(){
+        let j = require('../../core/parser/JSCodeshiftWrapper').j;
+        return j(this.functionASTNode).toSource()
+    }
+    getES6Refactor(){
+        let func = this.getSource()
+        try {
+            var lebab = require("lebab");
+            let test = 'var f = function(){};'
+            const {code, warnings} = 
+                lebab.transform(test, ['let', 'arrow','arrow-return','for-of','for-each','multi-var','class','commonjs']);    
+            return code;
+        } catch (error) {
+            console.log(error)
+            
+        }
+        
+        // const {code, warnings} = transform(
+        //   'var f = function(a) { return a; };', // code to transform
+        //   ['let', 'arrow', 'arrow-return'] // transforms to apply
+        // );
     }
 
     startLocation() {

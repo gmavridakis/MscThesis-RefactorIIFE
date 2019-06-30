@@ -20,8 +20,9 @@ function ask(question) {
 ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
         initIdentification(reply); /* Main Function For Report of IIFEs */
-        //refactorFunctionToClass(reply); /* Refactor Function to ES6 class */
-        //findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file */
+        //refactorToES6(reply)
+        //refactorFunctionToClass(reply); /* Refactor Function to ES6 class - class_refactor */
+        //findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file - global*/
     }
 ).finally(process.exit);
 
@@ -89,7 +90,8 @@ function initIdentification(reply){
             let path = './' + identified_files[i];
             console.log('Checking file : ' + path);
             // //if .js not empty
-            if ( validInit(path)) {
+            if (validInit(path)) {
+                console.log('Validated')
                 let initCode = fileUtils.readFileSync(path).trim();
                 // console.log(initCode);
                 // console.log(JSCodeshiftParser.parse(initCode));
@@ -97,7 +99,8 @@ function initIdentification(reply){
                 let nodesCollection = JSCodeshiftParser.parse(initCode);
                 IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
                 iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
-                console.log(iifeDeclarations);
+                functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
+                console.log(functionDeclarations);
             } else {
                 console.log('Proceeding...');
             }
@@ -190,7 +193,7 @@ function exportRefactorJS(refactored_data,path){
 
 function exportReportCSV(){
     counter = 0;
-    _path = 'src/init/newtest.csv';
+    _path = 'src/init/____ES6Refactoring____.csv';
     data = []; //init data before starting scanning iife functions
     if(!fileUtils.fileCreated(_path)){
         data.push(['counter', 
