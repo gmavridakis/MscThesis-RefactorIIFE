@@ -1,0 +1,8 @@
+counter,name,function_name,real_parameter,typical_parameter,returns_value,file_name,start_row,start_column,end_row,end_column,
+1,-,UNNAMED,0,0,true,./src/init/resources/protobuf.js-master/protobuf.js-master/bench/data/static_pbjs.js,10,0,180,5,
+2,-,UNNAMED,0,0,true,./src/init/resources/protobuf.js-master/protobuf.js-master/bench/data/static_pbjs.js,65,4,167,9,
+3,-,UNNAMED,0,0,true,./src/init/resources/protobuf.js-master/protobuf.js-master/bench/data/static_pbjs.js,114,8,164,13,
+4,-,UNNAMED,0,0,true,./src/init/resources/protobuf.js-master/protobuf.js-master/bench/data/static_pbjs.js,169,4,177,9,
+5,-,UNNAMED,0,0,true,./src/init/resources/protobuf.js-master/protobuf.js-master/bench/data/static_pbjs.js,182,0,238,5,
+6,-,UNNAMED,1,1,false,./src/init/resources/protobuf.js-master/protobuf.js-master/cli/wrappers/closure.js,1,0,7,13,
+7,-,UNNAMED,2,2,false,./src/init/resources/protobuf.js-master/protobuf.js-master/cli/wrappers/default.js,1,0,15,3,

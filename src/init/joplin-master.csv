@@ -1,0 +1,6 @@
+counter,name,function_name,real_parameter,typical_parameter,returns_value,file_name,start_row,start_column,end_row,end_column,
+1,-,UNNAMED,0,0,false,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/index.js,1,0,418,5,
+2,-,UNNAMED,1,1,false,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,30,0,1190,9,
+3,-,UNNAMED,1,1,false,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,848,4,855,25,
+4,-,UNNAMED,0,0,true,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,430,12,436,17,
+5,-,UNNAMED,0,0,true,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,440,14,446,19,
