@@ -6,7 +6,7 @@
 
     var obj = (function () {
         let obj = {
-            "name" : "greg"
+            "name1" : "greg"
         }
         return obj;
     })();

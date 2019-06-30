@@ -6,7 +6,6 @@ const IIFEFunctionRefactor = require('../../../main/core/parser/FunctionToClassR
 const IIFEDeclarationCollection = require('../../../main/core/model/Collection/IIFEDeclarationCollection');
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
 
-
 var Promise = require('bluebird');
 
 function ask(question) {
@@ -20,9 +19,9 @@ function ask(question) {
 
 ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
-        //initIdentification(reply); /* Main Function For Report of IIFEs */
+        initIdentification(reply); /* Main Function For Report of IIFEs */
         //refactorFunctionToClass(reply); /* Refactor Function to ES6 class */
-        findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file */
+        //findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file */
     }
 ).finally(process.exit);
 
@@ -48,6 +47,7 @@ function findVariablesInFiles(reply){
         }
     }    
 }
+
 
 function refactorFunctionToClass(reply){
     let identified_files = fileUtils.getRecursivePaths(reply);
@@ -142,6 +142,30 @@ function validInit(path){
         && path!='./src/init/resources/piskel-master/test/drawing/DrawingTests.perf.js'
         // added for bluebird
         && path!='./src/init/resources/bluebird-master/bluebird-master/tools/job-runner/job-runner.js'
+        // added for amphtml-master
+        && path!='./src/init/resources/amphtml-master/amphtml-master/examples/amp-script/vue-todomvc.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/testing/describes.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/d3/d3.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/react-dates/bundle.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/wgxpath/wgxpath.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/vega/vega.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/inputmask/bundle.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/d3-geo-projection/d3-geo-projection.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/closure-library/sha384-generated.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/third_party/caja/html-sanitizer.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/extensions/amp-bind/0.1/bind-expr-impl.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/extensions/amp-animation/0.1/parsers/css-expr-impl.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/extensions/amp-access/0.1/access-expr-impl.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/examples/amp-script/todomvc.ssr.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/build-system/babel-plugins/babel-plugin-transform-amp-extension-call/test/fixtures/transform-call/transform-simple-body/output.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/ads/svknative.js'
+        && path!='./src/init/resources/amphtml-master/amphtml-master/ads/nativo.js'
+        // joplin-master
+        && path!='./src/init/resources/joplin-master/joplin-master/ReactNativeClient/App.js'
+        // jupyterlab-master
+        && path!='./src/init/resources/jupyterlab-master/jupyterlab-master/dev_mode/index.js'
+        && path!='./src/init/resources/jupyterlab-master/jupyterlab-master/jupyterlab/staging/index.js'
+        && path!='./src/init/resources/jupyterlab-master/jupyterlab-master/jupyterlab/staging/yarn.js'
         ){
         return true;
     }
@@ -166,8 +190,7 @@ function exportRefactorJS(refactored_data,path){
 
 function exportReportCSV(){
     counter = 0;
-    _path = 'src/init/test.csv';
-    //_path = 'src/init/gregor.csv';
+    _path = 'src/init/newtest.csv';
     data = []; //init data before starting scanning iife functions
     if(!fileUtils.fileCreated(_path)){
         data.push(['counter', 
