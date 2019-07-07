@@ -4,9 +4,10 @@ class FunctionDeclarationCollection{
     constructor() {
     }
     
-    static addFunctionInCollectionArray(func,es6func,name,type,params,start,end){
+    static addFunctionInCollectionArray(func,unrefactored,es6func,name,type,params,start,end){
         let func_obj = {
             "FUNCTION" : func,
+            "UNREFACTORED_SOURCE" : unrefactored,
             "ES6_REFACTORED" : es6func,
             "NAME" : name,
             "TYPE" : type,

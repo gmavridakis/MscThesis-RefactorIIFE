@@ -1,4 +1,6 @@
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
+const IIFEFunctionRefactor = require('../parser/FunctionToClassRefactor');
+const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
 let statementList = [];
 
 class FunctionDeclaration {
@@ -10,6 +12,7 @@ class FunctionDeclaration {
         FunctionDeclarationCollection
             .addFunctionInCollectionArray(
                 functionASTNode,
+                this.getSource(),
                 this.getES6Refactor(),
                 this.getFunctionName(),
                 this.getFunctionType(),
@@ -47,7 +50,22 @@ class FunctionDeclaration {
         let j = require('../../core/parser/JSCodeshiftWrapper').j;
         return j(this.functionASTNode).toSource()
     }
+
     getES6Refactor(){
+        try {
+            let func = this.getSource()
+            // console.log('*** Before : ***');
+            // console.log(func);
+            let nodesCollection = JSCodeshiftParser.parse(this.functionASTNode);
+            let refactored_class = IIFEFunctionRefactor.classRefactor(nodesCollection);
+            // console.log('*** After : ***');
+            // console.log(refactored_class);                        
+            return refactored_class            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    getES6RefactorwithLebab(){
         let func = this.getSource()
         try {
             var lebab = require("lebab");

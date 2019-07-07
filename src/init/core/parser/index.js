@@ -19,9 +19,12 @@ function ask(question) {
 
 ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
-        initIdentification(reply); /* Main Function For Report of IIFEs */
-        //refactorToES6(reply)
-        //refactorFunctionToClass(reply); /* Refactor Function to ES6 class - class_refactor */
+        try {
+            initIdentification(reply); /* Main Function For Report of IIFEs */   
+            refactorFunctionToClass(reply); /* Refactor Function to ES6 class - class_refactor */
+        } catch (error) {
+            console.log(error)
+        }
         //findVariablesInFiles(reply); /* Identify Global Variables and Exports in new file - global*/
     }
 ).finally(process.exit);
@@ -51,28 +54,20 @@ function findVariablesInFiles(reply){
 
 
 function refactorFunctionToClass(reply){
-    let identified_files = fileUtils.getRecursivePaths(reply);
-    console.log('Identified ('+identified_files.length +') files in total! ');
-    if (identified_files == '-1') {
-        console.log('No IIFE was identified...');
-    } 
-    else {
-        //for each file
-        for (let i = 0; i < identified_files.length; i++) {
-            let path = './' + identified_files[i];
-            console.log('Checking file : ' + path);
-             //if .js not empty
-            if ( validInit(path)) {
-                let initCode = fileUtils.readFileSync(path).trim();
-                let nodesCollection = JSCodeshiftParser.parse(initCode);
-                //console.log(nodesCollection);
-                let refactored_class = IIFEFunctionRefactor.classRefactor(nodesCollection);
-                console.log('*** Before : ***');
-                console.log(initCode);
-                console.log('*** After : ***');
-                console.log(refactored_class);
-            }
+    try { 
+        //for each function
+        let functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
+        for (let i=0; i<functionDeclarations.length; i++) {
+            //if .js not empty
+            console.log('*** Before : ***');
+            let initCode = functionDeclarations[i];
+            console.log(initCode.UNREFACTORED_SOURCE);
+            console.log('*** After : ***');
+            console.log(initCode.ES6_REFACTORED);
         }
+    }
+    catch (error) {
+        console.log(error)
     }
 }
 
@@ -91,7 +86,6 @@ function initIdentification(reply){
             console.log('Checking file : ' + path);
             // //if .js not empty
             if (validInit(path)) {
-                console.log('Validated')
                 let initCode = fileUtils.readFileSync(path).trim();
                 // console.log(initCode);
                 // console.log(JSCodeshiftParser.parse(initCode));
@@ -100,7 +94,7 @@ function initIdentification(reply){
                 IIFEDeclarationFinder.getIIFEDeclarations(nodesCollection,path);
                 iifeDeclarations = IIFEDeclarationCollection.getIIFEInCollectionArray();
                 functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
-                console.log(functionDeclarations);
+                //console.log(functionDeclarations);
             } else {
                 console.log('Proceeding...');
             }
@@ -111,7 +105,6 @@ function initIdentification(reply){
         functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
         if(iifeDeclarations.length > 0){
             exportReportCSV();
-            console.log('Check the results under : ' + path + '(results.csv is generated successfully!)');    
         }
         else{
             console.log('No IIFE was identified...');
