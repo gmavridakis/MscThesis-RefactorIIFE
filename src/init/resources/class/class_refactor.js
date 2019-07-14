@@ -5,10 +5,6 @@
     let age = 26;
   }
   
-  (function(){
-    console.log('testing');
-  })();
-  
   Controller.prototype.name = "Mavridakis";
   
   Controller.prototype.contributeTo = function(param) {
@@ -34,4 +30,8 @@
     }
   })
 
-})()
+})();
+
+(function(){
+  console.log('testing');
+})();

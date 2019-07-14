@@ -5,7 +5,7 @@ let classPaths = {};
 class FunctionToClassRefactor {
 
     constructor() {}
-    
+
     /**
      * Refactor functions to ES6 Classes
      * @param rootNode the root node of the code as returned from jscodeshift
@@ -20,7 +20,8 @@ class FunctionToClassRefactor {
 
         // Store class paths, used to push methods after class creation
         let classPaths = {};
-      
+        let can_be_refactored = false
+        let classNames = []
         function createMethodDefinition(j, kind, key, path, isStatic = false) {
           return j.methodDefinition(
             kind,
@@ -57,6 +58,7 @@ class FunctionToClassRefactor {
       
             // Store path for future ref to insert methods
             classPaths[path.value.id.name] = path;
+            classNames.push(path.value.id.name)
           });
       
         /*
@@ -79,6 +81,7 @@ class FunctionToClassRefactor {
             }
           })
           .forEach(path => {
+            can_be_refactored = true
             const { name: className } = path.value.expression.left.object.object;
             const { name: memberName } = path.value.expression.left.property;
             const { value: memberValue } = path.value.expression.right;
@@ -208,10 +211,37 @@ class FunctionToClassRefactor {
       
             j(path).remove();
           });
-      
+          
+          classNames.forEach(_name => {
+            root
+            .find(j.ExpressionStatement, {
+              expression: {
+                left: {
+                  type: "MemberExpression",
+                  object: {
+                    object: {
+                      name : _name
+                    },
+                    property: {
+                      name: "prototype"
+                    }
+                  }
+                },
+                right: {
+                  type: "Literal"
+                }
+              }
+            })
+            .forEach(path => {
+              can_be_refactored = true
+            });            
+          });
+
+
+
           let res = {
             "REFACTORED" : root.toSource(),
-            "CAN_BE_REFACTORED" : true
+            "CAN_BE_REFACTORED" : can_be_refactored
           }
         return res;
     }

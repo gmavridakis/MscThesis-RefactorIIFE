@@ -39,14 +39,13 @@ function refactorFunctionToClass(){
         for (let i=0; i<functionDeclarations.length; i++) {
             //if .js not empty
             let initCode = functionDeclarations[i];
-            console.log('*** Before : ***');
-            console.log(initCode.UNREFACTORED_SOURCE);
-            console.log('*** After : ***');
-            console.log(initCode.ES6_REFACTORED);
-            // console.log('----all data---')
-            // console.log(initCode)
-            // console.log('----------------')
-            exportRefactorJS(initCode)
+            // console.log('*** Before : ***');
+            // console.log(initCode.UNREFACTORED_SOURCE);
+            // console.log('*** After : ***');
+            // console.log(initCode.ES6_REFACTORED);
+            console.log('*** Can be refactored ***');
+            console.log(initCode.CAN_BE_REFACTORED);
+            //exportRefactorJS(initCode,i)
         }
     }
     catch (error) {
@@ -54,12 +53,16 @@ function refactorFunctionToClass(){
     }
 }
 
-function exportRefactorJS(refactored_data){
-    let file_name = 'refactored_' +refactored_data.PATH.substring(refactored_data.PATH.lastIndexOf("/")+1,refactored_data.PATH.length);
-    let _path = refactored_data.PATH.substring(0, refactored_data.PATH.lastIndexOf("/")+1)+file_name ;
+function exportRefactorJS(refactored_data,i){
+    let current_path = refactored_data.PATH
+    let file_name = 'refactored_'+i +'_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
+    let _path = current_path.substring(0, current_path.lastIndexOf("/")+1)+file_name ;
     
-    if(!fileUtils.fileCreated(refactored_data.PATH) && refactored_data.CAN_BE_REFACTORED){
+    if(!fileUtils.fileCreated(current_path) && refactored_data.CAN_BE_REFACTORED){
         fileUtils.appendFileSync(_path, '\n'+refactored_data.ES6_REFACTORED);
+    }
+    else{
+        fileUtils.appendFileSync(_path, '\n //Cannot be refactored!'+_path);
     }
 }
 
