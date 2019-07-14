@@ -17,11 +17,13 @@ function ask(question) {
     });
 }
 
+
+
 ask('Give full path to js folder : (e.g. tern - current path is : src/init/resources )')
     .then(function(reply) {
         try {
-            initIdentification(reply); /* Main Function For Report of IIFEs */   
-            refactorFunctionToClass(reply); /* Refactor Function to ES6 class - class_refactor */
+            initIdentification(reply); /* Main Function For Report of IIFE's */   
+            refactorFunctionToClass(); /* Refactor Function to ES6 class - class_refactor */
         } catch (error) {
             console.log(error)
         }
@@ -29,45 +31,35 @@ ask('Give full path to js folder : (e.g. tern - current path is : src/init/resou
     }
 ).finally(process.exit);
 
-function findVariablesInFiles(reply){
-    let identified_files = fileUtils.getRecursivePaths(reply);
-    console.log('Identified ('+identified_files.length +') files in total! ');
-    if (identified_files == '-1') {
-        console.log('No IIFE was identified...');
-    } 
-    else {
-        //for each file
-        for (let i = 0; i < identified_files.length; i++) {
-            let path = './' + identified_files[i];
-            console.log('Checking file : ' + path);
-             //if .js not empty
-            if ( validInit(path)) {
-                let initCode = fileUtils.readFileSync(path).trim();
-                let nodesCollection = JSCodeshiftParser.parse(initCode);
-                let globals = GlobalVariableFinder.getGlobalVariables(nodesCollection);
-                exportRefactorJS(globals,identified_files[i]);
-                //GlobalVariableFinder.TernVariableIdentifier(initCode,path);
-            }
-        }
-    }    
-}
 
-
-function refactorFunctionToClass(reply){
+function refactorFunctionToClass(){
     try { 
         //for each function
         let functionDeclarations = FunctionDeclarationCollection.getFunctionsInCollectionArray();
         for (let i=0; i<functionDeclarations.length; i++) {
             //if .js not empty
-            console.log('*** Before : ***');
             let initCode = functionDeclarations[i];
+            console.log('*** Before : ***');
             console.log(initCode.UNREFACTORED_SOURCE);
             console.log('*** After : ***');
             console.log(initCode.ES6_REFACTORED);
+            // console.log('----all data---')
+            // console.log(initCode)
+            // console.log('----------------')
+            exportRefactorJS(initCode)
         }
     }
     catch (error) {
         console.log(error)
+    }
+}
+
+function exportRefactorJS(refactored_data){
+    let file_name = 'refactored_' +refactored_data.PATH.substring(refactored_data.PATH.lastIndexOf("/")+1,refactored_data.PATH.length);
+    let _path = refactored_data.PATH.substring(0, refactored_data.PATH.lastIndexOf("/")+1)+file_name ;
+    
+    if(!fileUtils.fileCreated(refactored_data.PATH) && refactored_data.CAN_BE_REFACTORED){
+        fileUtils.appendFileSync(_path, '\n'+refactored_data.ES6_REFACTORED);
     }
 }
 
@@ -171,19 +163,6 @@ function validInit(path){
 
 }
 
-function exportRefactorJS(refactored_data,path){
-    let file_name = 'refactored_' +path.substring(path.lastIndexOf("/")+1,path.length);
-    let _path = path.substring(0, path.lastIndexOf("/")+1)+file_name ;
-    data = []; //init data before starting scanning iife functions
-    if(!fileUtils.fileCreated(path)){
-        console.log(refactored_data);
-        refactored_data.forEach(expr => {
-            expression = JSON.stringify(expr.expression).replace(/\"/g, "") +'\n';
-            fileUtils.appendFileSync(_path, expression);
-        })
-    }
-}
-
 function exportReportCSV(){
     counter = 0;
     _path = 'src/init/____ES6Refactoring____.csv';
@@ -221,27 +200,28 @@ function exportReportCSV(){
     fileUtils.appendFileSync(_path, data);
 }
 
+
 /*
-    //console.log(iifeDeclarations[j].IIFE);
-    //console.log(functionDeclarations[j].FUNCTION);
-    //name ready
-    //console.log(functionDeclarations[j].NAME);
-    //type ready
-    //console.log(functionDeclarations[j].TYPE);
-    //actual parameters ready
-    //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.total_counts);
-    //console.log(iifeDeclarations[j].ACTUAL_PARAMETERS.paramaters);
-    //typical parameters ready
-    //console.log(functionDeclarations[j].TYPICAL_PARAMETERS);
-    //return details ready
-    // console.log(iifeDeclarations[j].RETURN_DETAILS.has_return_value);
-    // console.log(iifeDeclarations[j].RETURN_DETAILS.returned_to_node);
-    // console.log(iifeDeclarations[j].RETURN_DETAILS.return_statement_node);
-    //path ready
-    //console.log(iifeDeclarations[j].PATH);
-    //start / end ready
-    // console.log(iifeDeclarations[j].START.startline);
-    // console.log(iifeDeclarations[j].START.startcolumn);
-    // console.log(iifeDeclarations[j].END.endline);
-    // console.log(iifeDeclarations[j].END.endcolumn);
+function findVariablesInFiles(reply){
+    let identified_files = fileUtils.getRecursivePaths(reply);
+    console.log('Identified ('+identified_files.length +') files in total! ');
+    if (identified_files == '-1') {
+        console.log('No IIFE was identified...');
+    } 
+    else {
+        //for each file
+        for (let i = 0; i < identified_files.length; i++) {
+            let path = './' + identified_files[i];
+            console.log('Checking file : ' + path);
+             //if .js not empty
+            if ( validInit(path)) {
+                let initCode = fileUtils.readFileSync(path).trim();
+                let nodesCollection = JSCodeshiftParser.parse(initCode);
+                let globals = GlobalVariableFinder.getGlobalVariables(nodesCollection);
+                exportRefactorJS(globals,identified_files[i]);
+                //GlobalVariableFinder.TernVariableIdentifier(initCode,path);
+            }
+        }
+    }    
+}
 */

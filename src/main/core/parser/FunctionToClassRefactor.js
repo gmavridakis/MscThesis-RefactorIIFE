@@ -209,7 +209,11 @@ class FunctionToClassRefactor {
             j(path).remove();
           });
       
-        return root.toSource();
+          let res = {
+            "REFACTORED" : root.toSource(),
+            "CAN_BE_REFACTORED" : true
+          }
+        return res;
     }
 }
 

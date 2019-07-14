@@ -1,2 +1,0 @@
-Please follow this link to find the zips for all tested github projects
-https://github.com/gmavridakis/temp-iife-projects-repository

@@ -7,7 +7,7 @@ class FunctionDeclaration {
 
     // jscodeshift
 
-    constructor(functionASTNode) {
+    constructor(functionASTNode,file) {
         this.functionASTNode = functionASTNode;
         FunctionDeclarationCollection
             .addFunctionInCollectionArray(
@@ -18,7 +18,8 @@ class FunctionDeclaration {
                 this.getFunctionType(),
                 this.getTypicalParameterCount(),
                 this.startLocation(),
-                this.endLocation()
+                this.endLocation(),
+                file
             );
         /**
          * iterate over body of functionDeclaration and create an object for each statement

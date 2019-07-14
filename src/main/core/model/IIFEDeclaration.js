@@ -4,7 +4,7 @@ class IIFEDeclaration {
 
     constructor(initASTNode, functionNode, filePath) {
         this.initASTNode = initASTNode;
-        this.functionDeclaration = new FunctionDeclaration(functionNode);
+        this.functionDeclaration = new FunctionDeclaration(functionNode,filePath);
         this.filePath = filePath;
         IIFEDeclarationCollection
             .addIIFEInCollectionArray(
