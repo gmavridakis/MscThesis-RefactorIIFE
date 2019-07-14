@@ -21,7 +21,8 @@ class FunctionToClassRefactor {
         // Store class paths, used to push methods after class creation
         let classPaths = {};
         let can_be_refactored = false
-        let classNames = []
+        let className = ""
+        let _class
         function createMethodDefinition(j, kind, key, path, isStatic = false) {
           return j.methodDefinition(
             kind,
@@ -58,7 +59,7 @@ class FunctionToClassRefactor {
       
             // Store path for future ref to insert methods
             classPaths[path.value.id.name] = path;
-            classNames.push(path.value.id.name)
+            className = path.value.id.name
           });
       
         /*
@@ -212,7 +213,8 @@ class FunctionToClassRefactor {
             j(path).remove();
           });
           
-          classNames.forEach(_name => {
+          // PRE - CONDITIONS
+          if(className!=""){
             root
             .find(j.ExpressionStatement, {
               expression: {
@@ -220,7 +222,7 @@ class FunctionToClassRefactor {
                   type: "MemberExpression",
                   object: {
                     object: {
-                      name : _name
+                      name : className
                     },
                     property: {
                       name: "prototype"
@@ -235,13 +237,21 @@ class FunctionToClassRefactor {
             .forEach(path => {
               can_be_refactored = true
             });            
-          });
+          }
 
-
+          if(root.__paths[0].value.body.body[0].type == 'ClassDeclaration'){
+            _class = root.__paths[0].value.body.body[0]
+            _class = 'export ' +j(_class).toSource()
+          }
+          else{
+            console.log('refactor error')
+            can_be_refactored = false
+          }
 
           let res = {
-            "REFACTORED" : root.toSource(),
-            "CAN_BE_REFACTORED" : can_be_refactored
+            "REFACTORED_EXPORT" : _class,
+            "CAN_BE_REFACTORED" : can_be_refactored,
+            "CLASS_NAME" : can_be_refactored ? className : "" 
           }
         return res;
     }

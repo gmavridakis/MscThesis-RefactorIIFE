@@ -30,6 +30,8 @@
     }
   })
 
+  console.log(Controller.defineProperty());
+
 })();
 
 (function(){

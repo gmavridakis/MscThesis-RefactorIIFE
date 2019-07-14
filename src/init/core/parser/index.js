@@ -41,10 +41,13 @@ function refactorFunctionToClass(){
             let initCode = functionDeclarations[i];
             // console.log('*** Before : ***');
             // console.log(initCode.UNREFACTORED_SOURCE);
-            // console.log('*** After : ***');
-            // console.log(initCode.ES6_REFACTORED);
+            console.log('*** After : ***');
+            console.log(initCode.REFACTORED_EXPORT);
+            console.log(initCode.REFACTORED_IMPORT);
+            console.log(initCode.IMPORT);
             console.log('*** Can be refactored ***');
             console.log(initCode.CAN_BE_REFACTORED);
+            console.log(initCode.CLASS_NAME);
             //exportRefactorJS(initCode,i)
         }
     }
@@ -55,7 +58,7 @@ function refactorFunctionToClass(){
 
 function exportRefactorJS(refactored_data,i){
     let current_path = refactored_data.PATH
-    let file_name = 'refactored_'+i +'_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
+    let file_name = 'refactored_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
     let _path = current_path.substring(0, current_path.lastIndexOf("/")+1)+file_name ;
     
     if(!fileUtils.fileCreated(current_path) && refactored_data.CAN_BE_REFACTORED){
