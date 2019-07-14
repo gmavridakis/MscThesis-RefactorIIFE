@@ -1,10 +1,10 @@
 const fileUtils = require('../../../main/io/fileutil');
 const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
 const IIFEDeclarationFinder = require('../../../main/core/parser/IIFEDeclarationFinder');
-const GlobalVariableFinder = require('../../../main/core/parser/GlobalVariableFinder');
 const IIFEFunctionRefactor = require('../../../main/core/parser/FunctionToClassRefactor');
 const IIFEDeclarationCollection = require('../../../main/core/model/Collection/IIFEDeclarationCollection');
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
+const GlobalVariableFinder = require('../../../main/core/parser/GlobalVariableFinder');
 
 var Promise = require('bluebird');
 
@@ -41,14 +41,10 @@ function refactorFunctionToClass(){
             let initCode = functionDeclarations[i];
             // console.log('*** Before : ***');
             // console.log(initCode.UNREFACTORED_SOURCE);
-            console.log('*** After : ***');
-            console.log(initCode.REFACTORED_EXPORT);
-            console.log(initCode.REFACTORED_IMPORT);
-            console.log(initCode.IMPORT);
-            console.log('*** Can be refactored ***');
-            console.log(initCode.CAN_BE_REFACTORED);
-            console.log(initCode.CLASS_NAME);
-            //exportRefactorJS(initCode,i)
+            // console.log('*** After : ***');
+            // console.log(initCode.REFACTORED_EXPORT);
+            importRefactorJS(initCode,initCode.PATH,initCode.UNREFACTORED_SOURCE,initCode.IMPORT,initCode.REFACTORED_IMPORT)
+            exportRefactorJS(initCode,i)
         }
     }
     catch (error) {
@@ -56,13 +52,24 @@ function refactorFunctionToClass(){
     }
 }
 
+function importRefactorJS(init,path,query,_import,_importContent){
+    let refactoredImportData =  getRefactoredFile(path,query,_import,_importContent)
+    fileUtils.writeFileSync(path, refactoredImportData);
+}
+
+function getRefactoredFile(path,query,_import,_importContent){
+    let initCode = fileUtils.readFileSync(path).trim();
+    let restructured_code = _import + '\n'
+    restructured_code += initCode.replace(query,_importContent)
+    return restructured_code
+}
 function exportRefactorJS(refactored_data,i){
     let current_path = refactored_data.PATH
-    let file_name = 'refactored_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
+    let file_name = 'refactored_'+i +'_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
     let _path = current_path.substring(0, current_path.lastIndexOf("/")+1)+file_name ;
-    
+
     if(!fileUtils.fileCreated(current_path) && refactored_data.CAN_BE_REFACTORED){
-        fileUtils.appendFileSync(_path, '\n'+refactored_data.ES6_REFACTORED);
+        fileUtils.appendFileSync(_path, '\n'+refactored_data.REFACTORED_EXPORT);
     }
     else{
         fileUtils.appendFileSync(_path, '\n //Cannot be refactored!'+_path);

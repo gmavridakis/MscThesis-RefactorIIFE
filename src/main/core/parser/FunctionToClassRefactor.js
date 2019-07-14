@@ -16,6 +16,7 @@ class FunctionToClassRefactor {
         return refactored;
     }
 
+
     static identifyFunctions(root){
 
         // Store class paths, used to push methods after class creation

@@ -1,7 +1,6 @@
 const FunctionDeclarationCollection = require('../../../main/core/model/Collection/FunctionDeclarationCollection');
 const IIFEFunctionRefactor = require('../parser/FunctionToClassRefactor');
 const JSCodeshiftParser = require('../../../main/core/parser/JSCodeshiftWrapper').parser;
-let statementList = [];
 
 class FunctionDeclaration {
 

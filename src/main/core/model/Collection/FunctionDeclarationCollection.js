@@ -1,14 +1,15 @@
 let FunctionArray = [];
-
+let total = -1
 class FunctionDeclarationCollection{
-    constructor() {
-    }
+    
+    constructor() {}
     
     static addFunctionInCollectionArray(func,unrefactored,es6func,name,type,params,start,end,path){        
+        total++
         let current_path = path
-        let file_name = 'refactored_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
+        let file_name = 'refactored_'+total +'_'+current_path.substring(current_path.lastIndexOf("/")+1,current_path.length);
         let _IMPORT = 'import '+es6func.CLASS_NAME +' from \'./'+file_name +'\' ';
-        let _REF_IMPORT = '(function(){' +es6func.CLASS_NAME +'})();'
+        let _REF_IMPORT = 'function(){' +es6func.CLASS_NAME +'}'
         let func_obj = {
             "FUNCTION" : func,
             "UNREFACTORED_SOURCE" : unrefactored,
