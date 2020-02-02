@@ -1,0 +1,7 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/index.js,1,0,418,5,TRUE,0,0,used to init scripts with a top level iife
+2,-,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,30,0,1190,9,TRUE,0,0,"top level iife as function constructor (global.node,global.comment...)"
+3,-,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,848,4,855,25,TRUE,0,0,iife as function constructor with setters and getters
+4,-,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,430,12,436,17,TRUE,0,0,no need for refactor
+5,-,./src/init/resources/joplin-master/joplin-master/Clipper/joplin-webclipper/content_scripts/JSDOMParser.js,440,14,446,19,TRUE,0,0,no need for refactor
+,,,,,,, ,,,

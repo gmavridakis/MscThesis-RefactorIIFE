@@ -1,0 +1,35 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/backbone-master/backbone-min.js,1,0,1,24968,TRUE,0,0,no need for refactor - minified as library
+2,-,./src/init/resources/backbone-master/backbone.js,8,0,2096,3,TRUE,0,0,no need for refactor - create global backbone object
+3,-,./src/init/resources/backbone-master/docs/js/jquery.lazyload.js,15,0,210,19,TRUE,0,0,jQuery plugin for lazy loading images - use of local variables and methods
+4,-,./src/init/resources/backbone-master/docs/search.js,1,0,58,5,TRUE,0,0,no need for refactor - simple case
+5,-,./src/init/resources/backbone-master/examples/backbone.localStorage.js,7,0,184,4,TRUE,0,0,An adapter that replaces Backbone.sync to save to window.localStorage instead of to the server. - uses a dynamic way to pass real parameteres - all is local scope
+6,-,./src/init/resources/backbone-master/examples/todos/todos.js,7,0,234,3,TRUE,0,0, Load the application once the DOM is ready - no need for refactor
+7,-,./src/init/resources/backbone-master/test/collection.js,1,0,2103,10,TRUE,0,0,used for testing purposes - no need for refactor
+8,-,./src/init/resources/backbone-master/test/events.js,1,0,743,10,TRUE,0,0,used for testing purposes - no need for refactor
+9,-,./src/init/resources/backbone-master/test/model.js,1,0,1470,10,TRUE,0,0,used for testing purposes - no need for refactor
+10,-,./src/init/resources/backbone-master/test/noconflict.js,1,0,13,10,TRUE,0,0,used for testing purposes - no need for refactor
+11,-,./src/init/resources/backbone-master/test/router.js,1,0,1081,10,TRUE,0,0,used for testing purposes - no need for refactor
+12,-,./src/init/resources/backbone-master/test/setup/environment.js,1,0,45,10,TRUE,0,0,used for testing purposes - no need for refactor
+13,-,./src/init/resources/backbone-master/test/sync.js,1,0,239,10,TRUE,0,0,used for testing purposes - no need for refactor
+14,-,./src/init/resources/backbone-master/test/vendor/jquery.js,14,0,9472,13,TRUE,0,0,used for testing purposes - no need for refactor
+15,doScrollCheck,./src/init/resources/backbone-master/test/vendor/jquery.js,879,16,893,21,TRUE,0,0,used for testing purposes - no need for refactor
+16,add,./src/init/resources/backbone-master/test/vendor/jquery.js,999,20,1011,36,TRUE,0,0,used for testing purposes - no need for refactor
+17,-,./src/init/resources/backbone-master/test/vendor/jquery.js,3669,0,5353,13,TRUE,0,0,used for testing purposes - no need for refactor
+18,-,./src/init/resources/backbone-master/test/vendor/jquery.js,5178,4,5331,9,TRUE,0,0,used for testing purposes - no need for refactor
+19,-,./src/init/resources/backbone-master/test/vendor/jquery.js,6476,0,6537,5,TRUE,0,0,used for testing purposes - no need for refactor
+20,-,./src/init/resources/backbone-master/test/vendor/jquery.js,8372,0,8377,32,TRUE,0,0,used for testing purposes - no need for refactor
+21,-,./src/init/resources/backbone-master/test/vendor/jquery.js,1243,0,1508,5,TRUE,0,0,used for testing purposes - no need for refactor
+22,-,./src/init/resources/backbone-master/test/vendor/json2.js,166,0,481,5,TRUE,0,0,used for testing purposes - no need for refactor
+23,-,./src/init/resources/backbone-master/test/vendor/qunit.js,12,0,3287,8,TRUE,0,0,used for testing purposes - no need for refactor
+24,-,./src/init/resources/backbone-master/test/vendor/qunit.js,406,0,442,6,TRUE,0,0,used for testing purposes - no need for refactor
+25,-,./src/init/resources/backbone-master/test/vendor/qunit.js,1569,0,1572,5,TRUE,0,0,used for testing purposes - no need for refactor
+26,-,./src/init/resources/backbone-master/test/vendor/qunit.js,2105,4,2119,9,TRUE,0,0,used for testing purposes - no need for refactor
+27,-,./src/init/resources/backbone-master/test/vendor/qunit.js,2121,4,2147,9,TRUE,0,0,used for testing purposes - no need for refactor
+28,-,./src/init/resources/backbone-master/test/vendor/qunit.js,3289,0,4125,5,TRUE,0,0,used for testing purposes - no need for refactor
+29,-,./src/init/resources/backbone-master/test/vendor/qunit.js,4111,4,4113,26,TRUE,0,0,used for testing purposes - no need for refactor
+30,-,./src/init/resources/backbone-master/test/vendor/qunit.js,1596,0,1834,5,TRUE,0,0,used for testing purposes - no need for refactor
+31,-,./src/init/resources/backbone-master/test/vendor/qunit.js,1838,0,2095,5,TRUE,0,0,used for testing purposes - no need for refactor
+32,-,./src/init/resources/backbone-master/test/vendor/qunit.js,2200,0,3282,6,TRUE,0,0,used for testing purposes - no need for refactor
+33,-,./src/init/resources/backbone-master/test/vendor/require.js,12,0,2054,9,TRUE,0,0,used for testing purposes - no need for refactor
+34,-,./src/init/resources/backbone-master/test/view.js,1,0,516,10,TRUE,0,0,used for testing purposes - no need for refactor

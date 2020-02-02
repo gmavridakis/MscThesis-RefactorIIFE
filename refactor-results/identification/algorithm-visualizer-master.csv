@@ -1,0 +1,2 @@
+counter,name,function_name,real_parameter,typical_parameter,returns_value,file_name,start_row,start_column,end_row,end_column,
+1,main,NAMED,0,0,false,./src/init/resources/algorithm-visualizer-master/algorithm-visualizer-master/src/files/skeletons/code.js,32,0,39,5,

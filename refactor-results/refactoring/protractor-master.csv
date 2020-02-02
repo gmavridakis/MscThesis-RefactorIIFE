@@ -1,0 +1,47 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/protractor-master/protractor-master/lib/clientsidescripts.js,912,14,917,25,TRUE,0,0,simple case for refactor
+2,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular-animate.min.js,6,0,24,301,TRUE,0,0,no need for refactor - minified as library
+3,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular-route.min.js,6,0,13,211,TRUE,0,0,no need for refactor - minified as library
+4,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,6,0,201,146,TRUE,0,0,no need for refactor - minified as library
+5,T,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,33,407,33,455,TRUE,0,0,no need for refactor - minified as library
+6,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,69,119,69,247,TRUE,0,0,no need for refactor - minified as library
+7,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,69,247,69,367,TRUE,0,0,no need for refactor - minified as library
+8,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,116,425,117,21,TRUE,0,0,no need for refactor - minified as library
+9,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,198,266,201,94,TRUE,0,0,no need for refactor - minified as library
+10,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,64,380,65,204,TRUE,0,0,no need for refactor - minified as library
+11,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.2.9/angular.min.js,129,287,129,444,TRUE,0,0,no need for refactor - minified as library
+12,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular-animate.min.js,6,0,32,128,TRUE,0,0,no need for refactor - minified as library
+13,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular-aria.min.js,6,0,11,352,TRUE,0,0,no need for refactor - minified as library
+14,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular-route.min.js,6,0,14,167,TRUE,0,0,no need for refactor - minified as library
+15,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular.min.js,6,0,249,459,TRUE,0,0,no need for refactor - minified as library
+16,N,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular.min.js,40,194,40,242,TRUE,0,0,no need for refactor - minified as library
+17,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular.min.js,83,293,83,421,TRUE,0,0,no need for refactor - minified as library
+18,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular.min.js,83,421,84,43,TRUE,0,0,no need for refactor - minified as library
+19,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.3.13/angular.min.js,79,189,79,362,TRUE,0,0,no need for refactor - minified as library
+20,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular-animate.min.js,6,0,55,147,TRUE,0,0,no need for refactor - minified as library
+21,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular-animate.min.js,47,252,47,355,TRUE,0,0,no need for refactor - minified as library
+22,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular-aria.min.js,6,0,13,106,TRUE,0,0,no need for refactor - minified as library
+23,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular-route.min.js,6,0,14,281,TRUE,0,0,no need for refactor - minified as library
+24,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular.min.js,6,0,306,402,TRUE,0,0,no need for refactor - minified as library
+25,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular.min.js,96,193,96,324,TRUE,0,0,no need for refactor - minified as library
+26,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular.min.js,96,324,96,455,TRUE,0,0,no need for refactor - minified as library
+27,-,./src/init/resources/protractor-master/protractor-master/testapp/ng1/lib/angular_v1.5.0/angular.min.js,92,3,92,184,TRUE,0,0,no need for refactor - minified as library
+28,-,./src/init/resources/protractor-master/protractor-master/testapp/ng2/app/app.component.js,12,0,23,5,TRUE,0,0,initialize app component with a top level iife
+29,-,./src/init/resources/protractor-master/protractor-master/testapp/ng2/app/app.module.js,17,0,36,5,TRUE,0,0,module pattern - try to replace module.ts functionality
+30,-,./src/init/resources/protractor-master/protractor-master/testapp/ng2/app/async/async.component.js,12,0,106,5,TRUE,0,0,replace functionality of component async
+31,-,./src/init/resources/protractor-master/protractor-master/testapp/ng2/app/home/home.component.js,12,0,22,5,TRUE,0,0,replace functionality of component home
+32,-,./src/init/resources/protractor-master/protractor-master/testapp/ng2/system-config.js,5,0,44,9,TRUE,0,0,replace functionality of angular system-config ts
+33,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/downgrade/ng2.js,7,0,26,5,TRUE,0,0,replace functionality of ng2.ts
+34,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/downgrade/ng2.js,28,0,48,5,TRUE,0,0,replace functionality of ng2.ts
+35,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/module.js,17,0,38,5,TRUE,0,0,replace functionality of module.ts of angular
+36,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/ng1.js,35,0,47,30,TRUE,0,0,replace functionality of upgrader.ts
+37,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/ng2.js,12,0,30,5,TRUE,0,0,replace functionality of system config of angular
+38,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/app/no_static/upgrader.js,16,0,31,5,TRUE,0,0,replace functionality of upgrader.ts
+39,-,./src/init/resources/protractor-master/protractor-master/testapp/upgrade/systemjs.config.js,5,0,49,9,TRUE,0,0,replace functionality of system config of angular
+40,-,./src/init/resources/protractor-master/protractor-master/website/js/api-controller.js,1,0,270,5,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+41,-,./src/init/resources/protractor-master/protractor-master/website/js/directives.js,6,0,100,5,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+42,-,./src/init/resources/protractor-master/protractor-master/website/js/markdown-controller.js,1,0,15,5,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+43,-,./src/init/resources/protractor-master/protractor-master/website/js/prettify.js,2,0,30,110,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+44,-,./src/init/resources/protractor-master/protractor-master/website/js/prettify.js,8,438,9,143,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+45,runTests,./src/init/resources/protractor-master/protractor-master/website/run-tests.js,20,0,38,6,TRUE,0,0,try to replace ts functionality with the use of iife and js files
+,,,,,,, ,,, 

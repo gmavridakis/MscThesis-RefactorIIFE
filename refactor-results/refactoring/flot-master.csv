@@ -1,0 +1,53 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/flot-master/flot-master/examples/axes-time-zones/date.js,414,2,893,4,TRUE,0,0,init timezone function
+2,-,./src/init/resources/flot-master/flot-master/examples/shared/jquery-ui/jquery-ui.min.js,7,0,7,4192,TRUE,0,0,local scope methods and variables - minified as library
+3,-,./src/init/resources/flot-master/flot-master/examples/shared/jquery-ui/jquery-ui.min.js,7,4192,7,10581,TRUE,0,0,local scope methods and variables - minified as library
+4,-,./src/init/resources/flot-master/flot-master/examples/shared/jquery-ui/jquery-ui.min.js,7,10581,7,13300,TRUE,0,0,local scope methods and variables - minified as library
+5,-,./src/init/resources/flot-master/flot-master/examples/shared/jquery-ui/jquery-ui.min.js,7,13300,7,30507,TRUE,0,0,local scope methods and variables - minified as library
+6,-,./src/init/resources/flot-master/flot-master/examples/shared/jquery-ui/jquery-ui.min.js,7,4846,7,5136,TRUE,0,0,local scope methods and variables - minified as library
+7,-,./src/init/resources/flot-master/flot-master/lib/globalize.culture.en-US.js,14,0,33,11,TRUE,0,0,init of globalize en-US - simple case to be refactored
+8,-,./src/init/resources/flot-master/flot-master/lib/globalize.js,11,0,1601,11,TRUE,0,0,top level iife for init globalize
+9,-,./src/init/resources/flot-master/flot-master/lib/globalize.js,705,0,854,5,TRUE,0,0,local scope methods and variables
+10,-,./src/init/resources/flot-master/flot-master/lib/globalize.js,884,0,1241,5,TRUE,0,0,local scope methods and variables
+11,-,./src/init/resources/flot-master/flot-master/lib/jquery.event.drag.js,12,1,145,13,TRUE,0,0,local scope methods and variables - use as library
+12,-,./src/init/resources/flot-master/flot-master/lib/jquery.mousewheel.js,15,0,86,11,TRUE,0,0,local scope methods and variables - use as library
+13,-,./src/init/resources/flot-master/flot-master/source/jquery.canvaswrapper.js,15,0,538,11,TRUE,0,0,local scope methods and variables - use as library
+14,-,./src/init/resources/flot-master/flot-master/source/jquery.colorhelpers.js,23,0,199,11,TRUE,0,0,local scope methods and variables - use as library
+15,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.axislabels.js,32,0,212,11,TRUE,0,0,local scope methods and variables - use as library
+16,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.browser.js,8,0,98,11,TRUE,0,0,local scope methods and variables - use as library
+17,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.categories.js,46,0,202,11,TRUE,0,0,local scope methods and variables - use as library
+18,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.composeImages.js,35,0,325,11,TRUE,0,0,local scope methods and variables - use as library
+19,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.crosshair.js,61,0,202,11,TRUE,0,0,local scope methods and variables - use as library
+20,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.drawSeries.js,9,0,657,11,TRUE,0,0,local scope methods and variables - use as library
+21,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.errorbars.js,65,0,375,11,TRUE,0,0,local scope methods and variables - use as library
+22,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.fillbetween.js,32,0,254,11,TRUE,0,0,local scope methods and variables - use as library
+23,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.flatdata.js,20,0,47,11,TRUE,0,0,local scope methods and variables - use as library
+24,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.hover.js,27,0,349,11,TRUE,0,0,local scope methods and variables - use as library
+25,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.image.js,55,0,249,11,TRUE,0,0,local scope methods and variables - use as library
+26,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.js,9,0,2786,11,TRUE,0,0,local scope methods and variables - use as library
+27,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.legend.js,5,0,400,11,TRUE,0,0,local scope methods and variables - use as library
+28,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.logaxis.js,21,0,298,11,TRUE,0,0,local scope methods and variables - use as library
+29,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.navigate.js,104,0,798,11,TRUE,0,0,local scope methods and variables - use as library
+30,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.pie.js,58,0,786,11,TRUE,0,0,local scope methods and variables - use as library
+31,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.resize.js,23,0,23,1674,TRUE,0,0,local scope methods and variables - use as library
+32,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.resize.js,26,0,60,11,TRUE,0,0,local scope methods and variables - use as library
+33,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.resize.js,23,1203,23,1436,TRUE,0,0,local scope methods and variables - use as library
+34,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.resize.js,23,1465,23,1657,TRUE,0,0,local scope methods and variables - use as library
+35,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.saturated.js,1,0,43,11,TRUE,0,0,local scope methods and variables - use as library
+36,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.selection.js,81,0,504,11,TRUE,0,0,local scope methods and variables - use as library
+37,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.stack.js,38,0,220,11,TRUE,0,0,local scope methods and variables - use as library
+38,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.symbol.js,16,0,98,11,TRUE,0,0,local scope methods and variables - use as library
+39,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.threshold.js,45,0,143,11,TRUE,0,0,local scope methods and variables - use as library
+40,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.time.js,10,0,585,11,TRUE,0,0,local scope methods and variables - use as library
+41,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.touch.js,3,0,319,11,TRUE,0,0,local scope methods and variables - use as library
+42,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.touchNavigate.js,3,0,360,11,TRUE,0,0,local scope methods and variables - use as library
+43,-,./src/init/resources/flot-master/flot-master/source/jquery.flot.uiConstants.js,1,0,10,11,TRUE,0,0,local scope methods and variables - use as library
+44,-,./src/init/resources/flot-master/flot-master/source/jquery.js,15,0,9473,13,TRUE,0,0,local scope methods and variables - use as library
+45,doScrollCheck,./src/init/resources/flot-master/flot-master/source/jquery.js,880,16,894,21,TRUE,0,0,local scope methods and variables - use as library
+46,add,./src/init/resources/flot-master/flot-master/source/jquery.js,1000,20,1012,36,TRUE,0,0,local scope methods and variables - use as library
+47,-,./src/init/resources/flot-master/flot-master/source/jquery.js,3670,0,5354,13,TRUE,0,0,local scope methods and variables - use as library
+48,-,./src/init/resources/flot-master/flot-master/source/jquery.js,5179,4,5332,9,TRUE,0,0,local scope methods and variables - use as library
+49,-,./src/init/resources/flot-master/flot-master/source/jquery.js,6477,0,6538,5,TRUE,0,0,local scope methods and variables - use as library
+50,-,./src/init/resources/flot-master/flot-master/source/jquery.js,8373,0,8378,32,TRUE,0,0,local scope methods and variables - use as library
+51,-,./src/init/resources/flot-master/flot-master/source/jquery.js,1244,0,1509,5,TRUE,0,0,local scope methods and variables - use as library
+,,,,,,, ,,,

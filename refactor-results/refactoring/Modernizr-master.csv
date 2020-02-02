@@ -1,0 +1,14 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/Modernizr-master/Modernizr-master/feature-detects/css/columns.js,12,2,41,7,TRUE,0,0,iife to init method addTest
+2,-,./src/init/resources/Modernizr-master/Modernizr-master/feature-detects/css/fontface.js,30,2,35,7,TRUE,0,0,no need for refactor
+3,-,./src/init/resources/Modernizr-master/Modernizr-master/feature-detects/css/textdecoration.js,15,2,39,7,TRUE,0,0,iife to init method addTest
+4,-,./src/init/resources/Modernizr-master/Modernizr-master/feature-detects/input.js,43,2,53,17,TRUE,0,0,no need for refactor
+5,-,./src/init/resources/Modernizr-master/Modernizr-master/feature-detects/inputtypes.js,53,2,107,17,TRUE,0,0,must init inputattrs in new file
+6,-,./src/init/resources/Modernizr-master/Modernizr-master/src/hasEvent.js,29,2,70,7,TRUE,0,0,uses local scope methods and variables
+7,-,./src/init/resources/Modernizr-master/Modernizr-master/src/hasOwnProp.js,16,2,31,7,TRUE,0,0,no need for refactor
+8,-,./src/init/resources/Modernizr-master/Modernizr-master/src/html5printshiv.js,13,5,533,64,TRUE,0,0,window and document params must be new variables in exported file
+9,-,./src/init/resources/Modernizr-master/Modernizr-master/src/html5printshiv.js,42,6,65,11,TRUE,0,0,no need for refactor
+10,-,./src/init/resources/Modernizr-master/Modernizr-master/src/html5shiv.js,13,5,335,64,TRUE,0,0,window and document params must be new variables in exported file
+11,-,./src/init/resources/Modernizr-master/Modernizr-master/src/html5shiv.js,42,6,65,11,TRUE,0,0,no need for refactor
+12,-,./src/init/resources/Modernizr-master/Modernizr-master/src/mq.js,47,2,67,7,TRUE,0,0,no need for refactor
+,,,,,,,, ,,

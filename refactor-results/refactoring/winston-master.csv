@@ -1,0 +1,4 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments,
+1,read,./src/init/resources/winston-master/winston-master/lib/winston/tail-file.js,57,4,116,9,-,-,-,files changed,
+2,inner,./src/init/resources/winston-master/winston-master/test/helpers/index.js,151,2,163,7,-,-,-,files changed,
+,,,,,,,,,,, 

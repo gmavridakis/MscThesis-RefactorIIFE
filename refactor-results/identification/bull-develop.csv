@@ -1,0 +1,2 @@
+counter,name,function_name,real_parameter,typical_parameter,returns_value,file_name,start_row,start_column,end_row,end_column,
+1,-,UNNAMED,0,0,true,./src/init/resources/bull-develop/bull-develop/lib/commands/index.js,27,0,41,5,

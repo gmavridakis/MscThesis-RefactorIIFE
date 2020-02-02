@@ -1,0 +1,22 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/js/todoModel.js,3,1,88,4,TRUE,0,0,function constructor - even though it will change value of app which is not injected in iife it is not used anywhere else within file so can be refactored
+2,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/js/utils.js,3,0,50,5,TRUE,0,0,function constructor - even though it will change value of app which is not injected in iife it is not used anywhere else within file so can be refactored
+3,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/base.js,2,0,138,5,TRUE,0,0,use of local scope methods and variables
+4,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/base.js,117,8,120,90,TRUE,0,0,use of local scope methods and variables
+5,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/base.js,8,4,114,11,TRUE,0,0,use of local scope methods and variables
+6,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/director.js,6,0,723,51,TRUE,0,0,use of local scope methods and variables
+7,iterate,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/director.js,315,2,329,7,TRUE,0,0,no need for refactor
+8,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/director.js,253,4,260,13,TRUE,0,0,no need for refactor
+9,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,4,0,15919,3,TRUE,0,0,use of local scope methods and variables
+10,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,1774,1,1895,67,TRUE,0,0,no need for refactor
+11,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,2339,0,10009,4,TRUE,0,0,use of local scope methods and variables
+12,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,10013,0,10037,7,TRUE,0,0,no need for refactor
+13,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,480,0,491,4,TRUE,0,0,no need for refactor
+14,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/JSXTransformer.js,9989,4,10007,9,TRUE,0,0,use of local scope methods and variables
+15,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__application-actions/vendor/js/react-with-addons.js,4,0,21642,3,TRUE,0,0,use of local scope methods and variables
+16,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__e2e-snapshots/app.js,3,0,152,4,TRUE,0,0,use of local scope methods and variables
+17,-,./src/init/resources/cypress-example-recipes-master/cypress-example-recipes-master/examples/blogs__vue-vuex-rest/app.js,3,0,176,4,TRUE,0,0,use of local scope methods and variables
+,,,,,,,, ,,
+,,,,,,,,,,
+,,,,,,,,,,
+,, ,,,,,,,,

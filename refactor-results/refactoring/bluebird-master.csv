@@ -1,0 +1,55 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/bluebird-master/bluebird-master/src/assert.js,3,0,13,5,TRUE,0,0,init AssetionError variable with function constructor
+2,-,./src/init/resources/bluebird-master/bluebird-master/src/assert.js,2,0,55,5,TRUE,0,0,module.exports - implementing module
+3,-,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,35,0,103,5,TRUE,0,0,"in exported file require of async,es5 must be included"
+4,-,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,239,0,302,5,TRUE,0,0,"in exported file require of util,es5 must be included"
+5,-,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,304,0,323,5,TRUE,0,0,in exported file require of util must be included
+6,stackDetection,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,950,0,1027,7,TRUE,0,0,in exported file require of warning must be included
+7,-,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,50,8,64,13,TRUE,0,0,in exported file require of timers and util must be included
+8,-,./src/init/resources/bluebird-master/bluebird-master/src/debuggability.js,66,8,89,13,TRUE,0,0,in exported file require of async must be included
+9,-,./src/init/resources/bluebird-master/bluebird-master/src/es5.js,1,0,4,5,TRUE,0,0,very simple case to be refactored
+10,-,./src/init/resources/bluebird-master/bluebird-master/src/promisify.js,218,4,218,52,TRUE,0,0,very simple case to be refactored
+11,-,./src/init/resources/bluebird-master/bluebird-master/src/props.js,11,0,28,5,TRUE,0,0,module pattern
+12,-,./src/init/resources/bluebird-master/bluebird-master/src/schedule.js,36,4,62,9,TRUE,0,0,function constructor
+13,-,./src/init/resources/bluebird-master/bluebird-master/src/util.js,112,0,176,5,TRUE,0,0,module pattern with require of es5
+14,-,./src/init/resources/bluebird-master/bluebird-master/src/util.js,265,0,278,5,TRUE,0,0,require of es5 and canattachTrace function
+15,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-sham.js,5,0,445,3,TRUE,0,0,testing purposes - no need for refactor
+16,freeze,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-sham.js,387,4,395,22,TRUE,0,0,testing purposes - no need for refactor
+17,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-shim.js,5,0,1320,3,TRUE,0,0,testing purposes - no need for refactor
+18,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-shim.js,950,4,1092,9,TRUE,0,0,testing purposes - no need for refactor
+19,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-shim.js,1125,4,1200,9,TRUE,0,0,testing purposes - no need for refactor
+20,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/es5-shim.js,792,4,929,13,TRUE,0,0,testing purposes - no need for refactor
+21,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/have_getters.js,1,0,20,5,TRUE,0,0,testing purposes - no need for refactor
+22,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/json.js,2,0,17,306,TRUE,0,0,testing purposes - no need for refactor
+23,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/main.js,9,0,73,5,TRUE,0,0,testing purposes - no need for refactor
+24,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/mocha.js,1,1,6070,5,TRUE,0,0,testing purposes - no need for refactor
+25,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/mocha.js,75,0,408,5,TRUE,0,0,testing purposes - no need for refactor
+26,-,./src/init/resources/bluebird-master/bluebird-master/test/browser/mocha.js,5912,0,5912,45,TRUE,0,0,testing purposes - no need for refactor
+27,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/2.2.5.js,11,0,14,5,TRUE,0,0,testing purposes - no need for refactor
+28,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/2.2.5.js,16,0,18,5,TRUE,0,0,testing purposes - no need for refactor
+29,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/bind.js,4,0,4,45,TRUE,0,0,testing purposes - no need for refactor
+30,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/constructor.js,111,4,113,9,TRUE,0,0,testing purposes - no need for refactor
+31,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/generator.js,402,4,417,9,TRUE,0,0,testing purposes - no need for refactor
+32,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,24,0,2272,2,TRUE,0,0,testing purposes - no need for refactor
+33,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,26,0,52,5,TRUE,0,0,testing purposes - no need for refactor
+34,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,27,4,37,9,TRUE,0,0,testing purposes - no need for refactor
+35,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,197,0,332,26,TRUE,0,0,testing purposes - no need for refactor
+36,stackDetection,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,270,0,330,5,TRUE,0,0,testing purposes - no need for refactor
+37,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,388,0,501,18,TRUE,0,0,testing purposes - no need for refactor
+38,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,504,0,636,21,TRUE,0,0,testing purposes - no need for refactor
+39,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,637,0,663,24,TRUE,0,0,testing purposes - no need for refactor
+40,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,664,0,1859,20,TRUE,0,0,testing purposes - no need for refactor
+41,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,1863,0,2039,25,TRUE,0,0,testing purposes - no need for refactor
+42,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,2040,0,2077,32,TRUE,0,0,testing purposes - no need for refactor
+43,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,2078,0,2106,28,TRUE,0,0,testing purposes - no need for refactor
+44,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,2107,0,2165,29,TRUE,0,0,testing purposes - no need for refactor
+45,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,2166,0,2208,30,TRUE,0,0,testing purposes - no need for refactor
+46,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/helpers/bluebird0_7_0.js,2210,0,2254,28,TRUE,0,0,testing purposes - no need for refactor
+47,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/promisify.js,533,8,569,25,TRUE,0,0,testing purposes - no need for refactor
+48,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/promisify.js,1038,0,1047,5,TRUE,0,0,testing purposes - no need for refactor
+49,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/rejections.js,5,4,18,9,TRUE,0,0,testing purposes - no need for refactor
+50,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/synchronous_inspection.js,50,0,50,60,TRUE,0,0,testing purposes - no need for refactor
+51,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/timers.js,88,4,95,21,TRUE,0,0,testing purposes - no need for refactor
+52,-,./src/init/resources/bluebird-master/bluebird-master/test/mocha/unhandled_rejections.js,769,0,776,5,TRUE,0,0,testing purposes - no need for refactor
+53,timerLoop,./src/init/resources/bluebird-master/bluebird-master/tools/mocha_runner.js,60,8,67,13,TRUE,0,0,simple case - no need for refactor
+54,-,./src/init/resources/bluebird-master/bluebird-master/tools/utils.js,96,0,197,5,TRUE,0,0,revealing module pattern - can be refactored

@@ -1,0 +1,8 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/faker.js-master/faker.js-master/build/build/de/faker.de.js,22975,0,23034,9,TRUE,0,0,function used as password generator with local methods and variables
+2,-,./src/init/resources/faker.js-master/faker.js-master/build/build/de_AT/faker.de_AT.js,22229,0,22288,9,TRUE,0,0,function used as password generator with local methods and variables
+3,-,./src/init/resources/faker.js-master/faker.js-master/build/build/de_CH/faker.de_CH.js,19299,0,19358,9,TRUE,0,0,function used as password generator with local methods and variables
+4,-,./src/init/resources/faker.js-master/faker.js-master/build/build/en/faker.en.js,18613,0,18672,9,TRUE,0,0,function used as password generator with local methods and variables
+5,-,./src/init/resources/faker.js-master/faker.js-master/build/build/en_AU/faker.en_AU.js,19261,0,19320,9,TRUE,0,0,function used as password generator with local methods and variables
+6,-,./src/init/resources/faker.js-master/faker.js-master/build/build/en_au_ocker/faker.en_au_ocker.js,18964,0,19023,9,TRUE,0,0,function used as password generator with local methods and variables
+7,-,./src/init/resources/faker.js-master/faker.js-master/build/build/en_BORK/faker.en_BORK.js,18731,0,18790,9,TRUE,0,0,function used as password generator with local methods and variables

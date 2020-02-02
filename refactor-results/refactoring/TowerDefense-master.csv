@@ -1,0 +1,13 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Layers/Background.js,1,0,57,5,TRUE,0,0,top level iife to create instance background
+2,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Layers/Explosions.js,1,0,65,5,TRUE,0,0,top level iife to create instance explosions
+3,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Layers/Map.js,1,0,110,5,TRUE,0,0,top level iife to create instance map
+4,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Layers/PathfindingDebug.js,1,0,106,5,TRUE,0,0,top level iife to create instance pathfindingDebug 
+5,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Map.js,1,0,93,11,TRUE,0,0,top level iife to create instance map
+6,-,./src/init/resources/TowerDefense-master/js/TowerDefense/MapObject.js,1,0,174,11,TRUE,0,0,top level iife to create instance map object
+7,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Pathfinding.js,1,0,148,11,TRUE,0,0,top level iife to create instance pathfinding
+8,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Point.js,1,0,13,5,TRUE,0,0,top level iife to create instance point
+9,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Tower.js,1,0,18,11,TRUE,0,0,top level iife to create instance tower
+10,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Turret.js,1,0,105,11,TRUE,0,0,top level iife to create instance turret
+11,-,./src/init/resources/TowerDefense-master/js/TowerDefense/Wall.js,1,0,18,11,TRUE,0,0,top level iife to create instance wall
+12,-,./src/init/resources/TowerDefense-master/js/TowerDefense.js,1,0,163,11,TRUE,0,0,top level iife to create instance tower defense

@@ -1,0 +1,40 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/knockout-master/build/knockout-raw.js,8,0,34,5,TRUE,0,0,used to init scripts
+2,-,./src/init/resources/knockout-master/spec/dependentObservableBehaviors.js,564,12,567,17,TRUE,0,0,test purposes - no need for refactor
+3,-,./src/init/resources/knockout-master/spec/dependentObservableBehaviors.js,270,8,274,13,TRUE,0,0,test purposes - no need for refactor
+4,-,./src/init/resources/knockout-master/spec/lib/innershiv.js,2,0,39,4,TRUE,0,0,test purposes - no need for refactor
+5,memoizeFocusedSpec,./src/init/resources/knockout-master/spec/lib/jasmine-1.2.0/jasmine-html.js,128,4,142,9,TRUE,0,0,test purposes - no need for refactor
+6,-,./src/init/resources/knockout-master/spec/lib/jasmine-1.2.0/jasmine-tap.js,4,0,98,5,TRUE,0,0,test purposes - no need for refactor
+7,-,./src/init/resources/knockout-master/spec/lib/jasmine-1.2.0/jasmine.js,1729,0,1751,5,TRUE,0,0,test purposes - no need for refactor
+8,-,./src/init/resources/knockout-master/spec/lib/jasmine-1.2.0/jasmine.js,1740,4,1749,21,TRUE,0,0,test purposes - no need for refactor
+9,-,./src/init/resources/knockout-master/spec/lib/json2.js,166,0,482,5,TRUE,0,0,test purposes - no need for refactor
+10,-,./src/init/resources/knockout-master/spec/lib/loadDependencies.js,1,0,56,5,TRUE,0,0,test purposes - no need for refactor
+11,-,./src/init/resources/knockout-master/src/binding/bindingAttributeSyntax.js,1,0,608,5,TRUE,0,0,top level iife used as modula pattern
+12,-,./src/init/resources/knockout-master/src/binding/bindingProvider.js,1,0,71,5,TRUE,0,0,top level iife used as modula pattern
+13,-,./src/init/resources/knockout-master/src/binding/defaultBindings/checked.js,1,0,130,5,TRUE,0,0,top level iife as revealing module pattern
+14,-,./src/init/resources/knockout-master/src/binding/defaultBindings/ifIfnotWith.js,1,0,81,5,TRUE,0,0,top level iife to make with bindings
+15,-,./src/init/resources/knockout-master/src/binding/defaultBindings/textInput.js,1,0,203,5,TRUE,0,0,top level iife to init bindingHandlers
+16,-,./src/init/resources/knockout-master/src/binding/editDetection/arrayToDomNodeChildren.js,1,0,235,5,TRUE,0,0,"top level iife , Given an input array, a container DOM node, and a function from array elements to arrays of DOM nodes, map the array elements to arrays of DOM nodes, concatenate together all these arrays, and use them to populate the container DOM node"
+17,-,./src/init/resources/knockout-master/src/binding/editDetection/compareArrays.js,20,0,100,5,TRUE,0,0,iife to init compareArrays function as module pattern
+18,-,./src/init/resources/knockout-master/src/binding/expressionRewriting.js,1,0,191,5,TRUE,0,0,top level iife as revealing module pattern
+19,-,./src/init/resources/knockout-master/src/binding/selectExtensions.js,1,0,74,5,TRUE,0,0,top level iife as revealing module pattern
+20,-,./src/init/resources/knockout-master/src/components/componentBinding.js,1,0,105,5,TRUE,0,0,top level iife to init bindingHandlers
+21,-,./src/init/resources/knockout-master/src/components/customElements.js,1,0,115,5,TRUE,0,0,top level iife to init ko components
+22,-,./src/init/resources/knockout-master/src/components/customElements.js,93,8,98,38,TRUE,0,0,no need to refactor - simple case
+23,-,./src/init/resources/knockout-master/src/components/customElements.js,102,8,113,44,TRUE,0,0,iife used for dependency injection
+24,-,./src/init/resources/knockout-master/src/components/defaultLoader.js,1,0,226,5,TRUE,0,0,"top level iife - a default loader for maintaining the default in-memory registry of component configuration objects and answering requests for components by fetching configuration objects from that default in-memory registry and resolving them into standard component definition objects (of the form { createViewModel: ..., template: ... })"
+25,-,./src/init/resources/knockout-master/src/components/loaderRegistry.js,1,0,142,5,TRUE,0,0,"top level iife to init ko.components and loadedDefinitionsCache ,loadingSubscribablesCache "
+26,-,./src/init/resources/knockout-master/src/memoization.js,1,0,63,5,TRUE,0,0,top level iife to init loadingSubscribablesCache - use of revealing module pattern
+27,-,./src/init/resources/knockout-master/src/subscribables/mappingHelpers.js,1,0,92,5,TRUE,0,0,top level iife to initialize ko functions
+28,-,./src/init/resources/knockout-master/src/tasks.js,1,0,103,5,TRUE,0,0,top level iife to initialize ko.tasks
+29,-,./src/init/resources/knockout-master/src/tasks.js,11,8,15,29,TRUE,0,0,iife to initialize scheduler with a callback - dependency injection pattern
+30,-,./src/init/resources/knockout-master/src/templating/jquery.tmpl/jqueryTmplTemplateEngine.js,1,0,84,5,TRUE,0,0,top level iife to initialize jqueryTmplTemplateEngine  function
+31,-,./src/init/resources/knockout-master/src/templating/templateRewriting.js,1,0,61,5,TRUE,0,0,top level iife to initialize templete rewriting
+32,-,./src/init/resources/knockout-master/src/templating/templateSources.js,1,0,134,5,TRUE,0,0,top level iife to initialize template resources
+33,-,./src/init/resources/knockout-master/src/templating/templating.js,1,0,351,5,TRUE,0,0,top level iife to initialize templating
+34,-,./src/init/resources/knockout-master/src/utils.domData.js,1,0,70,5,TRUE,0,0,top level iife to initialize ko.utils.domData
+35,-,./src/init/resources/knockout-master/src/utils.domManipulation.js,1,0,131,5,TRUE,0,0,top level iife to initialize ko.utils.domManipulation
+36,-,./src/init/resources/knockout-master/src/utils.domNodeDisposal.js,1,0,98,5,TRUE,0,0,top level iife to initialize ko.utils.domNodeDisposal
+37,-,./src/init/resources/knockout-master/src/utils.js,1,0,595,5,TRUE,0,0,top level iife to initialize ko.utils
+38,-,./src/init/resources/knockout-master/src/virtualElements.js,1,0,217,5,TRUE,0,0,top level iife to initialize ko.virtualElements
+,,,,,,,, ,,

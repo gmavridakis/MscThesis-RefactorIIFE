@@ -1,0 +1,2 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition 1,precondition 2,Comments
+1,main,./src/init/resources/algorithm-visualizer-master/algorithm-visualizer-master/src/files/skeletons/code.js,32,0,39,5,TRUE,0,0,very simple case to be refactored - line 2 would be required in we implemented the refactor

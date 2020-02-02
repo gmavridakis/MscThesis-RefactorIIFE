@@ -1,0 +1,18 @@
+counter,name,file_name,start_row,start_column,end_row,end_column,can_be_refactored,precondition1,precondition2,comments
+1,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone-amd-module.js,2,0,3545,4,TRUE,0,0,top level iife to create jquery plugin - use of local function and variables
+2,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone-amd-module.js,15,0,15,564,TRUE,0,0,no need for refactor
+3,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone-amd-module.js,53,0,141,4,TRUE,0,0,need to add _classCallCheck() function in new js file
+4,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone-amd-module.js,143,0,2875,11,TRUE,0,0,revealing module pattern
+5,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone-amd-module.js,3302,0,3462,4,TRUE,0,0,revealing module pattern
+6,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone.js,3,0,3,564,TRUE,0,0,function constructor
+7,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone.js,41,0,129,4,TRUE,0,0,function constructor - The Emitter class provides the ability to call `.on()` on Dropzone to listen
+8,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone.js,131,0,2863,11,TRUE,0,0,export module - local methods and paramaters
+9,-,./src/init/resources/dropzone-master/dropzone-master/dist/dropzone.js,3290,0,3450,4,TRUE,0,0,revealing module pattern
+10,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone-amd-module.min.js,1,808,2,6419,TRUE,0,0,no need for refactor - minified as library
+11,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone-amd-module.min.js,1,808,2,6419,TRUE,0,0,no need for refactor - minified as library
+12,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone-amd-module.min.js,1,808,2,6419,TRUE,0,0,no need for refactor - minified as library
+13,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone-amd-module.min.js,2,10592,2,13051,TRUE,0,0,no need for refactor - minified as library
+14,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone.min.js,1,795,2,3695,TRUE,0,0,no need for refactor - minified as library
+15,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone.min.js,1,795,2,3695,TRUE,0,0,no need for refactor - minified as library
+16,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone.min.js,1,795,2,3695,TRUE,0,0,no need for refactor - minified as library
+17,-,./src/init/resources/dropzone-master/dropzone-master/dist/min/dropzone.min.js,2,7620,2,10166,TRUE,0,0,no need for refactor - minified as library
